@@ -34,6 +34,13 @@ After the scaling the number of photons inside these matrices is smaller and in 
 Then, the data were reorganized to be consistent with ROOT data, and so a 1-dim array with 54000 elements was obtained, named _"all_images_scaled_1d"_.
 
 # 4. CNN MODEL
-In the module **cnn_model.py**, there is the construction of CNN. Before the model, the dataset was divided into three sets: train_ds, val_ds, test_ds from the simulated data with the respective labels from the ROOT ones. 
+In the module **cnn_model.py**, there is the construction of CNN. First the dataset was divided into three sets: train_ds, val_ds, test_ds from the simulated data with the respective labels from the ROOT ones. 
+Once the data were ready, a _Sequential_ model was built, that present: a MaxPooling2D layer with a 31x31 window, a Flatten layer to have a 1-dimensional output that can be compared with the labels and a Dense layer. The loss function is a BinaryCrossEntropy, since the labels are only 0 or 1. 
+Training the model for 10 epochs, the results are: 
+- training accuracy: ~ 98.98%, training loss ~ 4.5%;
+- validation accuracy: ~ 98.77%, validation loss ~ 5.5%;
+- test accuracy: ~ 98.93%, test loss ~ 4.7%;
+
 # 5. CONCLUSION
+The CNN model seems good, let's see if increasing the dimensions of the dataset the performances increase.
 
