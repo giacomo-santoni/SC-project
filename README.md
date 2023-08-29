@@ -27,13 +27,13 @@ So, to handle these data, they have been reorganized in a matrix of 1000 columns
 
 # 3. DATA RESCALING
 Before passing the data to the model of a CNN, they have to be rescaled. The simulated dataset presents mostly a number of photons of the order of 10^2/10^3, except for some outliers, which are 2 or 3 orders of magnitude larger. So, the scaling had to take this into account, to maintain the correct distribution of the data. For this reason, in **scaling.py** the _RobustScaler_ algorithm from _sk.learn_ ML library was used: it can scale the data preserving the distribution. The scaling was applied to the whole dataset, in order to be sure to have at least one outlier since it is possible that we don't have an outlier in each camera. The algorithm takes in input a 2-dim array and works per column, for this reason the matrix was rearranged as a matrix of 1 column x number of rows relative to pixel hit by photon. _RobustScaler_ works according to the following formula <img width="296" alt="Screenshot 2023-08-29 alle 15 26 16" src="https://github.com/giacomo-santoni/SC-project/assets/133137485/4bd36bad-3fe2-426c-8afe-1952f0239f7d">.
-In order to be consistent with the ROOT data, the scaled data
+After the scaling the number of photons inside these matrices is smaller and in fact cameras look like: 
 
--- image
+![not blind](https://github.com/giacomo-santoni/SC-project/assets/133137485/08688fad-36c3-419f-a707-5583e669cd50) ![blind](https://github.com/giacomo-santoni/SC-project/assets/133137485/01bb4192-2e36-485a-81e5-1ca03e8cad1a)
 
 Then, the data were reorganized to be consistent with ROOT data, and so a 1-dim array with 54000 elements was obtained, named _"all_images_scaled_1d"_.
 
 # 4. CNN MODEL
-
+In the module **cnn_model.py**, there is the construction of CNN. Before the model, the dataset was divided into three sets: train_ds, val_ds, test_ds from the simulated data with the respective labels from the ROOT ones. 
 # 5. CONCLUSION
 
