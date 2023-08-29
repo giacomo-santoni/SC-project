@@ -10,4 +10,9 @@ For the reconstruction task, the blinded cameras are unuseful, since don't give 
 
 # 2. DATASET
 # 2.1 Simulated Data
-The data used in this code are simulated since the experiment is still being built. They are in \textit{.drdf} format, created by the researchers of the DUNE group. Data are stored in the "response.drdf" file. They are organized as a list, where each element contains the number of the event and a dictionary, where the keys are the names of the cameras and the values are matrices where each element represents the number of photons arrived in that pixel.
+The data used in this code are simulated since the experiment is still being built. They are in \textit{.drdf} format, created by the researchers of the DUNE group. Data are stored in the "response.drdf" file. They are organized as a list, where each element is composed of 2 objects: the number of the event and a dictionary. The dictionary gives us information on the photons arrived on the camera: the keys are the names of the cameras and the values are matrices where each element represents the number of photons arrived in a pixel. This file contains 1000 events (i.e. charged particle interaction in the detector with photon production), the cameras are 54 and they have 31x31 pixels. 
+An element of the file looks like the images below, where the right one is a normal camera and the left one is a blinded camera: 
+
+![ev_0_cam_1](https://github.com/giacomo-santoni/SC-project/assets/133137485/25a9b943-60e5-4cca-9ec6-d2557ce180a6)
+
+
