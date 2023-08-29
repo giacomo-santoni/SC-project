@@ -13,16 +13,25 @@ For the reconstruction task, the blinded cameras are unuseful, since don't give 
 In this code, simulated data are used since the experiment is still being built. They are in _.drdf_ format, created by the researchers of the DUNE group. Data are stored in the _"response.drdf"_ file. They are organized as a list, where each element is composed of 2 objects: the number of the event and a dictionary. The dictionary gives us information on the photons arrived on the camera: the keys are the names of the cameras and the values are matrices where each element represents the number of photons arrived in a pixel. This file contains 1000 events (i.e. charged particle interaction in the detector with photon production), the cameras are 54 and they have 31x31 pixels. The code for the import of these data is in **import_drdf.py**. 
 Below two typical images of the file are reported: the right one is a normal camera and the left one is a blinded camera. The functions for the plotting are defined in **functions.py**.
 
-![ev_0_cam_1](https://github.com/giacomo-santoni/SC-project/assets/133137485/25a9b943-60e5-4cca-9ec6-d2557ce180a6)                                                                  ![blindcam](https://github.com/giacomo-santoni/SC-project/assets/133137485/eab6400d-084f-4fa2-915d-9771940680f2)
+![ev_0_cam_1](https://github.com/giacomo-santoni/SC-project/assets/133137485/25a9b943-60e5-4cca-9ec6-d2557ce180a6)                               ![blindcam](https://github.com/giacomo-santoni/SC-project/assets/133137485/eab6400d-084f-4fa2-915d-9771940680f2)
 
-Thus, these data are stored in a matrix of 54 columns(cameras) x 1000 rows(events). This matrix has been flattened, obtaining an array of 54000 elements, where each element is a matrix representing a single camera 31x31. 
+Thus, these data are stored in a matrix of 54 columns(cameras) x 1000 rows(events). This matrix has been arranged in an array of 54000 elements, where each element is a matrix representing a single camera 31x31. 
 
 # 2.2 True Data
 Together with the simulated file _"response.drdf"_, there is the file _"sensors.root"_ with the "truth" of data, that will represent the labels for CNN training. It is a _ROOT_ file: each camera is a ROOT Tree, and each Tree has some variables, organized in TLeaves. The variable of our interest is only _innerPhotons_, which tells us how many photons are produced between the mask and the camera and if the camera is blinded or not. These data are imported into the code in **root_file.py**. In their original format, they look like this: 
 
 ![innerPhotons](https://github.com/giacomo-santoni/SC-project/assets/133137485/710f0478-5db0-4ffb-9b0c-ce0a4574870b)
 
-So, in order to handle these data, they have been reorganized in a matrix of 1000 columns(events) x 54 rows(cameras). In order to be consistent with the simulated dataset, the matrix has been transposed and flattened, obtaining an array of 54000 elements, where each element is the number of inner photons. Lastly, since these data have to represent only the state of the camera, i.e. blinded/not blinded, a 1 was assigned to the element if the number of inner photons is larger than 5, meaning blinded camera; a 0 otherwise. So at the end, an array of 0 and 1 was obtained, that can tell the truth about the state of the camera.
+So, to handle these data, they have been reorganized in a matrix of 1000 columns(events) x 54 rows(cameras). To be consistent with the simulated dataset, the matrix has been transposed and flattened, obtaining an array of 54000 elements, where each element is the number of inner photons. Lastly, a 1 was assigned to the element if the number of inner photons is larger than 5, meaning that it's a blinded camera; a 0 otherwise. This was done since these data have to represent only the state of the camera, i.e. blinded/not blinded. So at the end, an array of 0 and 1 was obtained, named _"ev_cam_state"_, that can tell the truth about the state of the camera.
 
-# 3.DATA RESCALING
+# 3. DATA RESCALING
+Before passing the data to the model of a CNN, they have to be rescaled. The simulated dataset presents mostly a number of photons of the order of 10^2/10^3, except for some outliers, which are 2 or 3 orders of magnitude larger. So, the scaling had to take this into account, to maintain the correct distribution of the data. For this reason, in **scaling.py** the _RobustScaler_ algorithm from _sk.learn_ ML library was used: it can scale the data preserving the distribution. The scaling was applied to the whole dataset, in order to be sure to have at least one outlier since it isn't present in each camera. The algorithm takes in input a 2-dim array, and so the matrix of 54000 matrices 31x31 was flattened, obtaining an array of 51894000 elements, where each element is a single pixel. 
+
+-- image
+
+Then, the data were reorganized to be consistent with ROOT data, and so a 1-dim array with 54000 elements was obtained, named _"all_images_scaled_1d"_.
+
+# 4. CNN MODEL
+
+# 5. CONCLUSION
 
