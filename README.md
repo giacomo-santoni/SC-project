@@ -6,15 +6,17 @@ The GRAIN detector, filled with ~ 1 ton of Liquid Argon, is covered in total by 
 
 The approach chosen in this detector is the Coded Aperture Imaging technique, which requires a mask in front of each camera. The images formed on the camera are convolutions of images from each hole. So, if the photons are produced before the mask, then we will see a pattern similar to the mask pattern on the camera; otherwise, if the photons are produced between the mask and the camera, we will see an accumulation of photons in a point and the photons count will be much larger than the previous case. These are the so-called "blinded cameras".
 
-For the reconstruction task, the blinded cameras are unuseful, since don't give us information about the passage of the particle. For this reason, this project aims to classify the cameras, distinguishing the good ones from the blinded ones and allowing us to discard the latter ones.
+For the reconstruction task, the blinded cameras are unuseful, since don't give us information about the passage of the particle. For this reason, this project aims to classify the cameras, through a CNN, distinguishing the good ones from the blinded ones and allowing us to discard the latter ones.
 
 # 2. DATASET
 # 2.1 Simulated Data
 The data used in this code are simulated since the experiment is still being built. They are in \textit{.drdf} format, created by the researchers of the DUNE group. Data are stored in the "response.drdf" file. They are organized as a list, where each element is composed of 2 objects: the number of the event and a dictionary. The dictionary gives us information on the photons arrived on the camera: the keys are the names of the cameras and the values are matrices where each element represents the number of photons arrived in a pixel. This file contains 1000 events (i.e. charged particle interaction in the detector with photon production), the cameras are 54 and they have 31x31 pixels. 
-An element of the file looks like the images below, where the right one is a normal camera and the left one is a blinded camera: 
+Below two typical images of the file are reported: the right one is a normal camera and the left one is a blinded camera.
 
 ![ev_0_cam_1](https://github.com/giacomo-santoni/SC-project/assets/133137485/25a9b943-60e5-4cca-9ec6-d2557ce180a6)                                                                  ![blindcam](https://github.com/giacomo-santoni/SC-project/assets/133137485/eab6400d-084f-4fa2-915d-9771940680f2)
 
+# 2.2 True Data
+Together with the simulated file "response.drdf", there is a file "sensors.root" with the "truth" of data, that will represent the labels for CNN training.
 
 
 
