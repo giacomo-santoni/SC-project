@@ -36,11 +36,21 @@ Then, the data were reorganized to be consistent with ROOT data, and so a 1-dim 
 
 # 4. CNN MODEL and RESULTS
 In the module **training_model.py**, there is the construction of CNN. First the dataset was divided into three sets: train_ds, val_ds, test_ds from the simulated data with the respective labels from the ROOT ones, with the SplitDataset() and PrepareDataset() functions.
-Once the data were ready, a _Sequential_ model was built, that presents: two Convolutional layers 2D, with 31x31 window, 3x3 kernel filter; a MaxPooling2D layer with a 31x31 window; a Flatten layer to have a 1-dimensional output that can be compared with the labels and a Dense layer. The loss function is a BinaryCrossEntropy, since the labels are only 0 or 1. Before the first layer, some augmentation layers were added, to give to the model a better performance. 
-Training the model for 10 epochs, the results are: 
-- training accuracy: ~ 98.98%, training loss ~ 4.5%;
-- validation accuracy: ~ 98.77%, validation loss ~ 5.5%;
-- test accuracy: ~ 98.93%, test loss ~ 4.7%;
+Once the data were ready, a _Sequential_ model was built, that presents:
+
+_model = models.Sequential()
+model.add(layers.Conv2D(8,3,padding='same', activation='ReLU', input_shape=input_shape[1:]))
+model.add(layers.Conv2D(16,3,padding='same', activation='ReLU', input_shape=input_shape[1:]))
+model.add(layers.MaxPooling2D((32,32)))
+model.add(layers.Flatten())
+model.add(layers.Dense(1, activation='sigmoid'))_
+
+The loss function is a BinaryCrossentropy, since the labels are only 0 or 1. 
+An important feature added to the model is the class_weight in the model.fit() function. This has been done since the dataset is very imbalanced towards the not blinded cameras: without this precaution we would have a very good accuracy since the network can classify very well not blinded cameras, but it has large difficulties in classifying the blinded ones. Considering the weights of the two classes, the count of False Negatives drops a lot, but on the other hand the False Positive counts increase.
+So, on one side, this is good because we can exclude a great part of blinded cameras, but on the other side, another problem arises since a lot of good cameras will be excluded, being predicted as blinded, as is shown in the Confusion Matrix below: 
+![cm_test_dataset](https://github.com/giacomo-santoni/SC-project/assets/133137485/7c276d14-1009-4dc6-bb71-7bd3c9ba35f0)
+
+To try to face the second problem, the dataset was enlarged adding other events: an effective reduction in the number of FP was observed. 
 
 The Confusion matrix and the ROC curve obtained are: 
 
