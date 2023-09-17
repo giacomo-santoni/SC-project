@@ -45,6 +45,7 @@ model.add(layers.MaxPooling2D((32,32)))
 model.add(layers.Flatten())
 model.add(layers.Dense(1, activation='sigmoid'))_
 
+
 The loss function is a BinaryCrossentropy, since the labels are only 0 or 1. 
 An important feature added to the model is the class_weight in the model.fit() function. This has been done since the dataset is very imbalanced towards the not blinded cameras: without this precaution we would have a very good accuracy since the network can classify very well not blinded cameras, but it has large difficulties in classifying the blinded ones. Considering the weights of the two classes, the count of False Negatives drops a lot, but on the other hand the False Positive counts increase.
 So, on one side, this is good because we can exclude a great part of blinded cameras, but on the other side, another problem arises since a lot of good cameras will be excluded, being predicted as blinded, as is shown in the Confusion Matrix below: 
