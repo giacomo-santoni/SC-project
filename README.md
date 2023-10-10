@@ -58,15 +58,13 @@ DA SISTEMARE!!!!!
 - test accuracy: ~ 98.93%, test loss ~ 4.7%;
 
 Considering the weights of the two classes, the count of False Negatives drops a lot, but on the other hand the False Positive counts increase.
-So, on one side, this is good because we can exclude a great part of blinded cameras, but on the other side, another problem arises since a lot of good cameras will be excluded, being predicted as blinded, as is shown in the Confusion Matrix below: 
-![cm_test_dataset](https://github.com/giacomo-santoni/SC-project/assets/133137485/7c276d14-1009-4dc6-bb71-7bd3c9ba35f0)
-
-To try to face the second problem, the dataset was enlarged adding other events: an effective reduction in the number of FP was observed, as it is shown below:
+So, on one side, this is good because we can exclude a great part of blinded cameras, but on the other side, another problem arises since a lot of good cameras will be excluded, being predicted as blinded.
+To try to face the second problem, the dataset was enlarged adding sepcifically blinded events with a Data Augmentation, in this way the unbalancing is reduced.
+An effective reduction in the number of FP was observed, as it is shown below:
 
 <img width="535" alt="cm_larger_dataset" src="https://github.com/giacomo-santoni/SC-project/assets/133137485/71717842-d750-4aed-a74d-439b6769cc35">
 
-
-
+Moreover, to improve the dataset quality, a cut on cameras with less than 40 photons was performed: in fact, the cameras that detect few photons, are very difficult to be predicted, since they could be not blinded or maybe blinded because some photons have been produced inside the camera but not detected. This is justified also by the fact that in the subsequent reconstruction analysis only cameras with more than 50 photons are taken into account.
 
 # 5. CONCLUSION
 The CNN model seems good, let's see if increasing the dimensions of the dataset the performances increase.
