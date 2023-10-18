@@ -31,11 +31,10 @@ These modifications were done since these data have to represent only the state 
 # 2.3 Dataset features and rearrangement
 This dataset is very imbalanced towards the not-dazzled cameras, with a percentage of 99.7% - 0.3%. So, with this kind of data, a neural network would be very good in finding the not-dazzled cameras, but only because they are in larger amount. For this reason, I applied an augmentation on the dazzled cameras. 
 Moreover, I applied a cut on the cameras with less than 40 photons, since they don't give useful information for the track reconstruction, reducing the dataset to ...
-Then, I split the dataset into 3: train dataset of $\approx 10^5$ events, validation dataset of $\approx 10^5$ events and test dataset of $\approx 10^5$ events. The augmentation dataset was attached to the train dataset, yielding to an abundance of 65% not dazzled/35% dazzled. 
+Then, I split the dataset into 3: train dataset of $\approx 10^5$ events, validation dataset of $\approx 10^3$ events and test dataset of $\approx 10^4$ events. The augmentation dataset was attached to the train dataset, yielding to an abundance of 65% not dazzled/35% dazzled. 
 
 # 4. CNN MODEL and RESULTS
-In the module **training_model.py**, there is the construction of CNN. First the dataset was divided into three sets: train_ds, val_ds, test_ds from the simulated data with the respective labels from the ROOT ones, with the SplitDataset() and PrepareDataset() functions.
-Once the data were ready, a _Sequential_ model was built, that presents:
+In the module **training_model.py**, there is the construction of CNN, through a _Sequential_ model, that presents:
 
 output_bias = keras.initializers.Constant(initial_bias)
 model = models.Sequential([
@@ -47,22 +46,16 @@ layers.Dense(64, activation='relu'),
 layers.Dense(32,activation='relu'),
 layers.Dense(1, activation='sigmoid')
 ])
+model.compile(optimizer='adam', loss=loss_func, metrics=metric)
 
-The loss function is a BinaryCrossentropy, since is a binary classification problem. 
-An important feature added to the model is the class_weight in the model.fit() function. This has been done since the dataset is very imbalanced towards the not blinded cameras: without this precaution we would have a very good accuracy since the network can classify very well not blinded cameras, but it has large difficulties in classifying the blinded ones. Training the model for 10 epochs, the results are:
+The optimizer is 'adam', the loss function is a BinaryCrossentropy, since is a binary classification problem and the metric chosen is F1Score since I want to reduce both the number of FN and FP.
+An important feature added to the model is the class_weight in the model.fit() function. This was another attempts in order to solve the imbalancing problem. In this way, the model give more weight and importance to the minority class. Training the model for 10 epochs, the results are:
 DA SISTEMARE!!!!!
 - training accuracy: ~ 98.98%, training loss ~ 4.5%;
 - validation accuracy: ~ 98.77%, validation loss ~ 5.5%;
 - test accuracy: ~ 98.93%, test loss ~ 4.7%;
 
-Considering the weights of the two classes, the count of False Negatives drops a lot, but on the other hand the False Positive counts increase.
-So, on one side, this is good because we can exclude a great part of blinded cameras, but on the other side, another problem arises since a lot of good cameras will be excluded, being predicted as blinded.
-To try to face the second problem, the dataset was enlarged adding sepcifically blinded events with a Data Augmentation, in this way the unbalancing is reduced.
-An effective reduction in the number of FP was observed, as it is shown below:
-
-<img width="535" alt="cm_larger_dataset" src="https://github.com/giacomo-santoni/SC-project/assets/133137485/71717842-d750-4aed-a74d-439b6769cc35">
-
-Moreover, to improve the dataset quality, a cut on cameras with less than 40 photons was performed: in fact, the cameras that detect few photons, are very difficult to be predicted, since they could be not blinded or maybe blinded because some photons have been produced inside the camera but not detected. This is justified also by the fact that in the subsequent reconstruction analysis only cameras with more than 50 photons are taken into account.
+METTERE GRAFICI SU ANDAMENTO 
 
 # 5. CONCLUSION
 The CNN model seems good, let's see if increasing the dimensions of the dataset the performances increase.
