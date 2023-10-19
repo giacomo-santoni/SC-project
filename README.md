@@ -1,8 +1,29 @@
 # SOFTWARE & COMPUTING for NUCLEAR and SUBNUCLEAR PHYSICS project
-# 1. INTRODUCTION
-PARLARE DELL'ESPERIMENTO DUNE, DI SAND E DI GRAIN
-This project is part of the workflow of the simulation chain for the GRAIN detector of the SAND calorimeter in the DUNE experiment. Its aim consists in classifying two classes of images, observing the state of a single camera: if it is “dazzled”, i.e. reached by too many photons, or not. 
+## Abstract
+This project is part of the workflow of the simulation chain for the GRAIN detector of the SAND calorimeter in the DUNE experiment. GRAIN, a LAr detector, detects scintillating photons produced inside the Ar volume using cameras, formed by sensors and an Hadamard mask. These photons can be produced outside or inside the camera: depending on the number of inner photons produced, the camera will be defined as dazzled or not-dazzled. Since the dazzled cameras can't be used in the current reconstruction algorithm, a classification algorithm that separates these two classes of images is needed.
+This project tries to accomplish this task through a convolutional neural network. 
 
+## 1. INTRODUCTION
+### 1.1 Experiment overview
+The Deep Underground Neutrino Experiment (DUNE) is a long-baseline neutrino oscillation experiment that is being built in the United States. It will consists of two detectors: a Near Detector, close to Fermilab in Illinois and a Far Detector, in South Dakota, 1300 km away. Below a schematic design of the experiment is presented.
+<p align="center">
+<img width="758" alt="Screenshot 2023-10-19 alle 09 32 51" src="https://github.com/giacomo-santoni/SC-project/assets/133137485/0a0f477e-2ce3-4b4d-aa48-10de63a9adee">
+</p>
+Basically, the motivation for the design of this experiment is a more precise study of some neutrinos' properties: the mass hierarchy, the determination of CP-violating phase $\delta_{CP}$, the measurement of the octant $\theta_{23}$ and precise calculations of all the mixing angles.
+Moreover, it will contribute in the study of proton lifetime and Beyond Standard Model physics, in the search of dark matter hints for example.
+
+### 1.2 The detector 
+As said before, DUNE is provided with two main detectors since it's an neutrino oscillation experiment. <br> The Far Detector is a LArTPC, made of 4 modules of 10 ktons each. These modules combine tracking and calorimetry, allowing us to identify $\nu_{mu}$ interactions and reconstruct particle's energies. They have also imaging capability, improving the BSM searches. <br> The Near Detector is made of multiple sub-detectors, as it shown in the scheme below. A LArTPC is present, to be consistent with the Far one. In the Phase I, The Muon Spectrometer (TMS), a detector that measures the momentum and charge sign of the muons will be built; in Phase II it will be substituted with ND-GAr, a magnetized high-pressure gaseous argon TPC with a surrounding calorimeter. It allows particle-by-particle charge and momentum reconstruction. These two detectors can move off-axis, so they can study interaction of neutrinos at different energy spectra. 
+<p align="center">
+<img width="594" alt="Screenshot 2023-10-19 alle 10 28 15" src="https://github.com/giacomo-santoni/SC-project/assets/133137485/2b4a1099-72e3-4a93-b9d8-9773b1b9a63d">
+</p>
+
+SAND (System for on-Axis Neutrino Detection) is the third detector and it's fixed on-axis. It has the aim of measuring neutrino beam spectrum and performing tracking and calorimetry measurements. Below, the design it is shown. The idea of this system comes from an existing magnet and ECAL of KLOE detector, used in DAFNE experiment at INFN LNF Laboratory. <br> SAND consists in two subdetectors: a Straw Tube Target tracker (STT) and a GRanular Argon for Interactions of Neutrinos (GRAIN). 
+<p align="center">
+<img width="537" alt="Screenshot 2023-10-19 alle 10 42 23" src="https://github.com/giacomo-santoni/SC-project/assets/133137485/8eef6263-4dba-47e3-958c-4a41c12c48a6">
+</p>
+
+#### 1.2.1 GRAIN detector
 The GRAIN detector, filled with ~ 1 ton of Liquid Argon, is covered in total by almost 60 pixel-segmented photodetectors, each provided with a Hadamard's mask. The combination of mask and sensor is the so-called camera. The photodetectors aim to detect scintillation photons produced by the de-excitation of Ar atoms after interacting with charged particles. Capturing these photons, it should be possible to reconstruct the track of the charged particles in LAr, as is done in classic bubble chambers. Below is reported the GRAIN geometry.
 
 <img width="185" alt="image" src="https://github.com/giacomo-santoni/SC-project/assets/133137485/6b086b6d-ca07-4a65-8c1d-39f18c07093f">
