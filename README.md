@@ -31,9 +31,11 @@ The GRAIN detector, filled with ~ 1 ton of Liquid Argon, is covered in total by 
 </p>
 
 The approach chosen in this detector is the Coded Aperture Imaging technique, which requires, as said before, a mask in front of each sensor. The images formed on the sensors are convolutions of images from each hole. Below is reported an image that sketch some typical scenarios that can occur. If the photons are produced before the mask, then on the sensor we will see an image similar to the mask pattern (top image); otherwise, if the photons are produced between the mask and the camera, we will see a large count of photons accumulated in the camera (centered image). Sometimes, it can happen that a particle starts to emit photons outside the camera and continues inside, causing an unclear pattern on the sensor (bottom image). 
+
 <p align="center">
 <img width="523" alt="Screenshot 2023-10-18 alle 11 11 18" src="https://github.com/giacomo-santoni/SC-project/assets/133137485/45bb503d-fc04-4d3a-9f1c-c1094b7fbc52">
 </p>
+
 For the reconstruction task, the dazzled cameras can't be used in the current algorithm. For this reason, this project aims to classify the cameras, distinguishing the good ones from the dazzled ones and allowing us to discard the latter ones. Since, as shown above, the classification it's not always clear, a CNN written in Python was used to accomplish this task. The code has been uploaded in this repo, moduled in 4 different files to be clearer: Preprocessing.py, RootPreprocessing.py, Useful_functions.py, training_model.py
 
 # 2. DATASET
