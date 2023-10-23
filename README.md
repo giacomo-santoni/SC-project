@@ -44,11 +44,20 @@ For the reconstruction task, the dazzled cameras can't be used in the current al
 
 # 2. DATASET
 # 2.1 Simulated Data
+
+Is the function for loading _drdf_ files. It takes as input the name of the _drdf_ file and it returns a list, where each element is composed of 2 objects: the number of the event and a dictionary. The dictionary gives us information on the photons arrived on the camera: the keys are the names of the cameras and the values are matrices 32x32 where each element represents the number of photons that hit a pixel. This number isn't an integer since it is extracted from the electronic signal.
+
+
 In this code, simulated data are used since the experiment is still being built. They are in _.drdf_ format, created by the researchers of the DUNE group. Data are stored in 2 _"response.drdf"_ files, each generated after a simulation of 1000 events (i.e. charged particle interaction in the detector with photons production) with 60 and 58 camera configuration. They are organized as a list, where each element is composed of 2 objects: the number of the event and a dictionary. The dictionary gives us information on the photons arrived on the camera: the keys are the names of the cameras and the values are matrices 32x32 where each element represents the number of photons arrived in a pixel. This number isn't integer since it considers the electronic signal. The code for the import of these data is in **Preprocessing.py**. 
 
 Thus, these data are stored in a matrix of (cameras x events). This matrix has then been arranged in an array, where each element is a matrix representing a single camera 32x32. These rearrangements are presented in **Preprocessing.py**.
 
 # 2.2 True Data
+
+> These data are stored in a _ROOT_ file: each camera is a _ROOTTree_ and inside each Tree we are interested in the **innerPhotons** branch, that tells us how many photons produced within the camera are detected by the sensor. 
+
+> **OpenRootFile function**<br>It takes in input the name of the _drdf_ and _ROOT_ file and read the branch. Then it arranges the data of inner photons in a matrix of dimensions EVENTS(rows)xCAMERAS(cols), where each element is the number of inner photons.
+
 Together with each simulated file _"response.drdf"_, there is the file _"sensors.root"_ with the "truth" of data, that will represent the labels for CNN training. It is a _ROOT_ file: each camera is a ROOT Tree, and each Tree has some variables, organized in TLeaves. The variable of our interest is only _innerPhotons_, which tells us how many photons produced within the camera are detected by the sensor. These data are imported into the code in **RootPreprocessing.py**. In their original format, they look like this: 
 
 ![innerPhotons](https://github.com/giacomo-santoni/SC-project/assets/133137485/1e487172-6256-47aa-b413-8db6b020923e)
