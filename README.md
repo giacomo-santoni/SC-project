@@ -26,7 +26,15 @@ SAND (System for on-Axis Neutrino Detection) is the third detector and it's fixe
 #### 1.2.1 GRAIN detector
 The GRAIN detector, filled with ~ 1 ton of Liquid Argon, is placed upstream in the SAND volume. It will provide inclusive Ar interactions to find systematic uncertainties from nuclear effects located on-axis, cross-calibrating with other detectors.<br> Since the construction of a LAr TPC in the ND is not easy due to numerous events and the pile-up that occur, a new detection technique is developed: the tracking and calorimetry system of GRAIN is based on the exploitation of the LAr scintillation light through imaging. Indeed, charged particles in LAr ionize and excite Ar atoms. Then, with the subsequent de-excitation, a photon emission is induced. 
 
-Matrices of SiPMs are placed as photosensors, each provided with a Hadamard's mask. The combination of mask and sensor is the so-called camera. The photodetectors aim to detect scintillation photons produced by the de-excitation of Ar atoms after interacting with charged particles. Capturing these photons, it should be possible to reconstruct the track of the charged particles in LAr, as is done in classic bubble chambers. Below is reported the GRAIN geometry.
+Matrices of SiPMs are placed as photosensors, each provided with a Hadamard's mask. The combination of mask and sensor is the so-called camera. We can have various situation depending on the photon emission. Basically, are three, as it is shown in the figure below:
+* the photons are emitted before the camera, hence on the sensor there will be a clear mask pattern
+* the photons are emitted inside the camera from a particle that hit straight the camera, then on the sensor there will be a peak of photon in one single point
+* the photons are emitted both inside and outside the camera: this leads
+Since the LAr fills also the camera volume, the photon, hence, can be emitted also within the camera.
+
+
+
+The photodetectors aim to detect scintillation photons produced by the de-excitation of Ar atoms after interacting with charged particles. Capturing these photons, it should be possible to reconstruct the track of the charged particles in LAr, as is done in classic bubble chambers. Below is reported the GRAIN geometry.
 
 <p align="center">
 <img width="185" alt="image" src="https://github.com/giacomo-santoni/SC-project/assets/133137485/6b086b6d-ca07-4a65-8c1d-39f18c07093f">
