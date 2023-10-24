@@ -50,20 +50,20 @@ To download these files, putting them in your Desktop you can do:
 wget -P /$HOMEPATH/Desktop https://drive.google.com/drive/folders/1iAL9C_re_lVVf_Go8OUbI6DmOm9di53S
 
 ```
+These data are loaded and rearranged in the first section _Simulated Data - Preprocessing_.
 
 N.B. CARICARLI SUL DRIVE e poi vedere come farli scaricare e mettere in una cartella giusta DA CAPIRE!!
 
 # 2.2 True Data
+Together with each simulated file _"response.drdf"_, there is the file _"sensors.root"_ with the "truth" of data, that will represent the labels for CNN training. It is a _ROOT_ file: each camera is a ROOT Tree, and each Tree has some variables, organized in TLeaves. The variable of our interest is only _innerPhotons_, which tells us how many photons produced within the camera are detected by the sensor. As before, due to the large dimensions of the file, only the useful data were taken and then saved into a numpy file. 
+This file has been uploaded in Google Drive and you can download it just running:
 
-> These data are stored in a _ROOT_ file: each camera is a _ROOTTree_ and inside each Tree we are interested in the **innerPhotons** branch, that tells us how many photons produced within the camera are detected by the sensor. 
+```
+wget -P /$HOMEPATH/Desktop https://drive.google.com/drive/folders/1iAL9C_re_lVVf_Go8OUbI6DmOm9di53S
 
-> **OpenRootFile function**<br>It takes in input the name of the _drdf_ and _ROOT_ file and read the branch. Then it arranges the data of inner photons in a matrix of dimensions EVENTS(rows)xCAMERAS(cols), where each element is the number of inner photons.
+```
 
-Together with each simulated file _"response.drdf"_, there is the file _"sensors.root"_ with the "truth" of data, that will represent the labels for CNN training. It is a _ROOT_ file: each camera is a ROOT Tree, and each Tree has some variables, organized in TLeaves. The variable of our interest is only _innerPhotons_, which tells us how many photons produced within the camera are detected by the sensor. These data are imported into the code in **RootPreprocessing.py**. In their original format, they look like this: 
-
-![innerPhotons](https://github.com/giacomo-santoni/SC-project/assets/133137485/1e487172-6256-47aa-b413-8db6b020923e)
-
-So, to handle these data, they have been reorganized in a matrix (events x cameras). To be consistent with the simulated dataset, the matrix has been transposed and flattened, obtaining an array, where each element is the number of inner photons. Then, the data have been labelled considering the ratio #inner_photons/#total_photons: if it's larger than 0.1, the camera is considered dazzled, and a 0 is assigned to it, otherwise, is not dazzled. This parameter was considered instead of the absolute value of innerPhotons, since sometimes the number of inner photons seems to be large but the photons produced also in the detector are way larger. So, looking only at the absolute number of photons we would discard a camera that can be useful for the reconstruction.
+The data have been rearrenged to have a format consistent with the simulated ones and then labelled. The label criterion is based on a consideration on the ratio #inner_photons/#total_photons: if it's larger than 0.1, the camera is considered dazzled, and a 1 is assigned to it, otherwise, is not dazzled. This parameter was considered since sometimes the number of inner photons seems to be large but the photons produced in the remaining part of the detector are way larger. So, looking only at the absolute number of photons we would discard a camera that can be useful for the reconstruction.
 
 These modifications were done since these data have to represent only the state of the camera, i.e. dazzled/not dazzled. So at the end, an array of 0 and 1 was obtained, named _"ev_cam_state"_, that can tell the truth about the state of the camera. This handling is done in **RootPreprocessing.py**.
 
