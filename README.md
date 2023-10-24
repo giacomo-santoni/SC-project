@@ -63,7 +63,7 @@ wget -P /$HOMEPATH/Desktop https://drive.google.com/drive/folders/1iAL9C_re_lVVf
 
 ```
 
-The data have been rearrenged to have a format consistent with the simulated ones and then labelled. The label criterion is based on a consideration on the ratio #inner_photons/#total_photons: if it's larger than 0.1, the camera is considered dazzled, and a 1 is assigned to it, otherwise, is not dazzled. This parameter was considered since sometimes the number of inner photons seems to be large but the photons produced in the remaining part of the detector are way larger. So, looking only at the absolute number of photons we would discard a camera that can be useful for the reconstruction.
+The data have been rearrenged to have a format consistent with the simulated ones and then labelled. The label criterion is based on a consideration on the ratio #inner_photons/#total_photons: if it's larger than 0.1, the camera is considered dazzled, and a 1 is assigned to it, otherwise, is not dazzled. This parameter was considered since sometimes the number of inner photons seems to be large but the photons produced in the remaining part of the detector are way larger. This can occur in situations as the third case presented in Section 1.2.1, when the particle starts to emit before the camera and continues inside. So, looking only at the absolute number of photons we would discard a camera that can be useful for the reconstruction.
 
 These modifications were done since these data have to represent only the state of the camera, i.e. dazzled/not dazzled. So at the end, an array of 0 and 1 was obtained, named _"ev_cam_state"_, that can tell the truth about the state of the camera. This handling is done in **RootPreprocessing.py**.
 
