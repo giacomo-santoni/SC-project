@@ -1,9 +1,10 @@
 # SOFTWARE & COMPUTING for NUCLEAR and SUBNUCLEAR PHYSICS project
+
+> N.B. The instructions to download data are explained in _Dataset_, in _Simulated Data_ and _True Data_ sections.
+
 ## Abstract
 This project is part of the workflow of the simulation chain for the GRAIN detector of the SAND calorimeter in the DUNE experiment. GRAIN, a LAr detector, detects scintillating photons produced inside the Ar volume using cameras, devices formed by a sensor (matrix of SiPM) and an Hadamard mask. These photons can be produced outside or inside the camera: depending on the number of photons produced inside, the camera will be defined as dazzled or not-dazzled. Since the dazzled cameras can't be used in the current reconstruction algorithm, a classification that separates these two classes of images is needed.
 This project tries to accomplish this task through a convolutional neural network. 
-
-The instructions to download data are explained in _Dataset_, in _Simulated Data_ and _True Data_ sections. 
 
 In _Introduction_ I will introduce the experiment in which this project is set. In _Dataset_ I explain the organization of data and the rearrangements done. In the _CNN model and Results_ I present the model and some results to evaluate the performance of the model. Last section are the _Conclusions_.
 
