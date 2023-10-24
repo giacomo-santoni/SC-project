@@ -40,7 +40,7 @@ Matrices of SiPMs are placed as photosensors, each provided with a Hadamard's ma
 </p>
 
 For the reconstruction task, the dazzled cameras can't be used in the current algorithm. For this reason, this project aims to classify the cameras, distinguishing the good ones from the dazzled ones and allowing us to discard the latter ones. Since, as shown above, the classification it's not always clear, a CNN written in Python was used to accomplish this task. The code has been uploaded in this repo, in a VSCode Jupyter Notebook. It is divided in 5 sections: 
-_Simulated Data - Preprocessing_, where the simulated data are loaded and rearranged; _ROOT "True" Data - RootPreprocessing_, where the data from MC simulations are loaded a prepared; _Data Rearrangement_ , Useful_functions.py, training_model.py
+_Simulated Data - Preprocessing_, where the simulated data are loaded and rearranged; _ROOT "True" Data - RootPreprocessing_, where the data from MC simulations are loaded a prepared; _Data Rearrangement_, where data are prepared for the training; _CNN Model_ where model is build and data are trained; _Results_ where some results are reported to evaluate the performance of the model.
 
 # 2. DATASET
 # 2.1 Simulated Data
@@ -48,9 +48,9 @@ _Simulated Data - Preprocessing_, where the simulated data are loaded and rearra
 Is the function for loading _drdf_ files. It takes as input the name of the _drdf_ file and it returns a list, where each element is composed of 2 objects: the number of the event and a dictionary. The dictionary gives us information on the photons arrived on the camera: the keys are the names of the cameras and the values are matrices 32x32 where each element represents the number of photons that hit a pixel. This number isn't an integer since it is extracted from the electronic signal.
 
 
-In this project, simulated data are used since the experiment is still being built. They are in _.drdf_ format, created by the researchers of the DUNE group. Data are stored in 2 _"response.drdf"_ files, each generated after a simulation of 1000 events (i.e. charged particle interaction in the detector with photons production) with 60 and 58 camera configuration. They are organized as a list, where each element is composed of 2 objects: the number of the event and a dictionary. The dictionary gives us information on the photons arrived on the camera: the keys are the names of the cameras and the values are matrices 32x32 where each element represents the number of photons arrived in a pixel. This number isn't integer since it considers the electronic signal. Since the files are too The code for the import of these data is in **Preprocessing.py**. 
+In this project, simulated data are used since the experiment is still being built. They are in _.drdf_ format, created by the researchers of the DUNE group. The data used in this project are stored in 2 _"response.drdf"_ files, each generated after a simulation of 1000 events (i.e. charged particle interaction in the detector with photons production) with 60 and 58 camera configuration. They are organized as a list, where each element is composed of 2 objects: the number of the event and a dictionary. The dictionary gives us information on the photons arrived on the camera: the keys are the names of the cameras and the values are matrices 32x32 where each element represents the number of photons arrived in a pixel. This number isn't integer since it considers the electronic signal. Since the files are too heavy to be uploaded in the GitHub repo or Google Drive, the info of interest were taken and saved into a numpy file. Then, the files have been uploaded in Google Drive.
 
-Thus, these data are stored in a matrix of (cameras x events). This matrix has then been arranged in an array, where each element is a matrix representing a single camera 32x32. These rearrangements are presented in **Preprocessing.py**.
+N.B. CARICARLI SUL DRIVE e poi vedere se 
 
 # 2.2 True Data
 
