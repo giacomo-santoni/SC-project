@@ -39,8 +39,8 @@ Matrices of SiPMs are placed as photosensors, each provided with a Hadamard's ma
 <img width="523" alt="Screenshot 2023-10-18 alle 11 11 18" src="https://github.com/giacomo-santoni/SC-project/assets/133137485/45bb503d-fc04-4d3a-9f1c-c1094b7fbc52">
 </p>
 
-For the reconstruction task, the dazzled cameras can't be used in the current algorithm. For this reason, this project aims to classify the cameras, distinguishing the good ones from the dazzled ones and allowing us to discard the latter ones. Since, as shown above, the classification it's not always clear, a CNN written in Python was used to accomplish this task. The code has been uploaded in this repo, in a VSCode Jupyter Notebook. It is divided in 5 sections: 
-_Simulated Data - Preprocessing_, where the simulated data are loaded and rearranged; _ROOT "True" Data - RootPreprocessing_, where the data from MC simulations are loaded a prepared; _Data Rearrangement_, where data are prepared for the training; _CNN Model_ where model is build and data are trained; _Results_ where some results are reported to evaluate the performance of the model.
+For the reconstruction task, the dazzled cameras can't be used in the current algorithm. For this reason, this project aims to classify the cameras, distinguishing the good ones from the dazzled ones and allowing us to discard the latter ones. Since, as shown above, the classification it's not always clear, a CNN written in Python is used to accomplish this task. Indeed, up to now, this classification is done using the MonteCarlo truth, but when the experiment will be built a classification that relies only on the data is needed.
+The code has been uploaded in this repo, in a VSCode Jupyter Notebook. It is divided in 5 sections: _Simulated Data - Preprocessing_, where the simulated data are loaded and rearranged; _ROOT "True" Data - RootPreprocessing_, where the data from MonteCarlo simulations are loaded a prepared; _Data Rearrangement_, where data are prepared for the training; _CNN Model_ where model is build and data are trained; _Results_ where some results are reported to evaluate the performance of the model.
 
 # 2. DATASET
 # 2.1 Simulated Data
@@ -55,7 +55,7 @@ These data are loaded and rearranged in the first section _Simulated Data - Prep
 N.B. CARICARLI SUL DRIVE e poi vedere come farli scaricare e mettere in una cartella giusta DA CAPIRE!!
 
 # 2.2 True Data
-Together with each simulated file _"response.drdf"_, there is the file _"sensors.root"_ with the "truth" of data, that will represent the labels for CNN training. It is a _ROOT_ file: each camera is a ROOT Tree, and each Tree has some variables, organized in TLeaves. The variable of our interest is only _innerPhotons_, which tells us how many photons produced within the camera are detected by the sensor. As before, due to the large dimensions of the file, only the useful data were taken and then saved into a numpy file. 
+Together with each simulated file _"response.drdf"_, there is the file _"sensors.root"_ with the MC truth of data, that will represent the labels for CNN training. It is a _ROOT_ file: each camera is a ROOT Tree, and each Tree has some variables, organized in TLeaves. The variable of our interest is only _innerPhotons_, which tells us how many photons produced within the camera are detected by the sensor. As before, due to the large dimensions of the file, only the useful data were taken and then saved into a numpy file. 
 This file has been uploaded in Google Drive and you can download it just running:
 
 ```
@@ -68,34 +68,24 @@ The data have been rearrenged to have a format consistent with the simulated one
 These modifications were done since these data have to represent only the state of the camera, i.e. dazzled/not dazzled. So at the end, an array of 0 and 1 was obtained.
 
 # 2.3 Dataset features and rearrangement
-This dataset is very imbalanced towards the not-dazzled cameras, with a percentage of 99.7% - 0.3%. So, with this kind of data, a neural network would be very good in finding the not-dazzled cameras, but only because they are in larger amount. For this reason, I applied an augmentation on the dazzled cameras. 
-Moreover, I applied a cut on the cameras with less than 40 photons, since they don't give useful information for the track reconstruction, reducing the dataset to ...
-Then, I split the dataset into 3: train dataset of $\approx 10^5$ events, validation dataset of $\approx 10^3$ events and test dataset of $\approx 10^4$ events. The augmentation dataset was attached to the train dataset, yielding to an abundance of 65% not dazzled/35% dazzled. 
+This dataset is very imbalanced towards the not-dazzled cameras, with a percentage of 99.7% - 0.3%. So, with this kind of data, a neural network would be very good in finding the not-dazzled cameras, but only because they are in larger amount. For this reason, I applied an augmentation on the dazzled cameras, increasing their abundance up 35% with respect to the total number of events.
+Moreover, I applied a cut on the cameras with less than 40 photons, since they don't give useful information for the track reconstruction, reducing the dataset of 12%.
+Then, I split the dataset into 3: train dataset of $\approx 10^5$ events, validation dataset of $\approx 10^3$ events and test dataset of $\approx 10^4$ events. The augmentation dataset was attached to the train dataset. 
 
 # 4. CNN MODEL and RESULTS
-In the section _CNN model_, there is the construction of CNN, through a _Sequential_ model, that presents:
-
-output_bias = keras.initializers.Constant(initial_bias)
-model = models.Sequential([
-layers.Conv2D(32, (3,3), activation='relu',input_shape = input_shape[1:]),
-layers.MaxPooling2D((2,2)),
-layers.Flatten(),#(input_shape = input_shape[1:]),
-layers.Dense(128, activation='relu', bias_initializer=output_bias),
-layers.Dense(64, activation='relu'),
-layers.Dense(32,activation='relu'),
-layers.Dense(1, activation='sigmoid')
-])
-model.compile(optimizer='adam', loss=loss_func, metrics=metric)
-
+In the section _CNN model_, there is the construction of CNN, through a _Sequential_ model. 
 The optimizer is 'adam', the loss function is a BinaryCrossentropy, since is a binary classification problem and the metric chosen is F1Score since I want to reduce both the number of FN and FP.
 An important feature added to the model is the class_weight in the model.fit() function. This was another attempts in order to solve the imbalancing problem. In this way, the model give more weight and importance to the minority class. Training the model for 10 epochs, the results are:
-DA SISTEMARE!!!!!
-- training accuracy: ~ 98.98%, training loss ~ 4.5%;
-- validation accuracy: ~ 98.77%, validation loss ~ 5.5%;
-- test accuracy: ~ 98.93%, test loss ~ 4.7%;
+
+DA SISTEMARE DA QUI IN POI
+- training F1 score: ~ 98.98%, training loss ~ 4.5%;
+- validation F1 score: ~ 98.77%, validation loss ~ 5.5%;
+- test F1 score: ~ 98.93%, test loss ~ 4.7%;
 
 METTERE GRAFICI SU ANDAMENTO 
 
 # 5. CONCLUSION
+
+
 The CNN model seems good, let's see if increasing the dimensions of the dataset the performances increase.
 
