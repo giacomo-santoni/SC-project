@@ -3,6 +3,10 @@
 This project is part of the workflow of the simulation chain for the GRAIN detector of the SAND calorimeter in the DUNE experiment. GRAIN, a LAr detector, detects scintillating photons produced inside the Ar volume using cameras, devices formed by a sensor (matrix of SiPM) and an Hadamard mask. These photons can be produced outside or inside the camera: depending on the number of photons produced inside, the camera will be defined as dazzled or not-dazzled. Since the dazzled cameras can't be used in the current reconstruction algorithm, a classification that separates these two classes of images is needed.
 This project tries to accomplish this task through a convolutional neural network. 
 
+The instructions to download data are explained in _Dataset_, in _Simulated Data_ and _True Data_ sections. 
+
+In _Introduction_ I will introduce the experiment in which this project is set. In _Dataset_ I explain the organization of data and the rearrangements done. In the _CNN model and Results_ I present the model and some results to evaluate the performance of the model. Last section are the _Conclusions_.
+
 ## 1. INTRODUCTION
 ### 1.1 Experiment overview
 The Deep Underground Neutrino Experiment (DUNE) is a long-baseline neutrino oscillation experiment that is being built in the United States. It will consists of two detectors: a Near Detector, close to Fermilab in Illinois and a Far Detector, in South Dakota, 1300 km away. Below a schematic design of the experiment is presented.
@@ -39,7 +43,7 @@ Matrices of SiPMs are placed as photosensors, each provided with a Hadamard's ma
 <img width="523" alt="Screenshot 2023-10-18 alle 11 11 18" src="https://github.com/giacomo-santoni/SC-project/assets/133137485/45bb503d-fc04-4d3a-9f1c-c1094b7fbc52">
 </p>
 
-For the reconstruction task, the dazzled cameras can't be used in the current algorithm. For this reason, this project aims to classify the cameras, distinguishing the good ones from the dazzled ones and allowing us to discard the latter ones. Since, as shown above, the classification it's not always clear, a CNN written in Python is used to accomplish this task. Indeed, up to now, this classification is done using the MonteCarlo truth, but when the experiment will be built a classification that relies only on the data is needed.
+For the reconstruction task, the dazzled cameras can't be used in the current algorithm. For this reason, this project aims to classify the cameras, distinguishing the good ones from the dazzled ones and allowing us to discard the latter ones. Since, as shown above, the classification it's not always clear, a CNN written in Python is used to accomplish this task. Indeed, up to now, this classification is done using the MonteCarlo truth, but when the experiment will be built a classification that relies only on the data will be needed.
 The code has been uploaded in this repo, in a VSCode Jupyter Notebook. It is divided in 5 sections: _Simulated Data - Preprocessing_, where the simulated data are loaded and rearranged; _ROOT "True" Data - RootPreprocessing_, where the data from MonteCarlo simulations are loaded a prepared; _Data Rearrangement_, where data are prepared for the training; _CNN Model_ where model is build and data are trained; _Results_ where some results are reported to evaluate the performance of the model.
 
 # 2. DATASET
@@ -72,7 +76,7 @@ This dataset is very imbalanced towards the not-dazzled cameras, with a percenta
 Moreover, I applied a cut on the cameras with less than 40 photons, since they don't give useful information for the track reconstruction, reducing the dataset of 12%.
 Then, I split the dataset into 3: train dataset of $\approx 10^5$ events, validation dataset of $\approx 10^3$ events and test dataset of $\approx 10^4$ events. The augmentation dataset was attached to the train dataset. 
 
-# 4. CNN MODEL and RESULTS
+# 3. CNN MODEL and RESULTS
 In the section _CNN model_, there is the construction of CNN, through a _Sequential_ model. 
 The optimizer is 'adam', the loss function is a BinaryCrossentropy, since is a binary classification problem and the metric chosen is F1Score since I want to reduce both the number of FN and FP.
 An important feature added to the model is the class_weight in the model.fit() function. This was another attempts in order to solve the imbalancing problem. In this way, the model give more weight and importance to the minority class. Training the model for 10 epochs, the results are:
@@ -84,7 +88,7 @@ DA SISTEMARE DA QUI IN POI
 
 METTERE GRAFICI SU ANDAMENTO 
 
-# 5. CONCLUSION
+# 4. CONCLUSION
 
 
 The CNN model seems good, let's see if increasing the dimensions of the dataset the performances increase.
