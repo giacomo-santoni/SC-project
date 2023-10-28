@@ -78,12 +78,17 @@ Then, I split the dataset into 3: train dataset of $\approx 10^5$ events, valida
 # 3. CNN MODEL and RESULTS
 In the section _CNN model_, there is the construction of CNN, through a _Sequential_ model. 
 The optimizer is 'adam', the loss function is a BinaryCrossentropy, since is a binary classification problem and the metric chosen is F1Score since I want to reduce both the number of FN and FP.
-An important feature added to the model is the class_weight in the model.fit() function. This was another attempts in order to solve the imbalancing problem. In this way, the model give more weight and importance to the minority class. Training the model for 10 epochs, the results are:
+An important feature added to the model is the class_weight in the model.fit() function. This was another attempt to solve the imbalancing problem. In this way, the model give more weight and importance to the minority class. The model is trained for 10 epochs. Below the performances of the model during these epochs are shown, in the two plots. 
 
-DA SISTEMARE DA QUI IN POI
-- training F1 score: ~ 98.98%, training loss ~ 4.5%;
-- validation F1 score: ~ 98.77%, validation loss ~ 5.5%;
+<p align="center">
+![668239b0-ece9-4c00-bafb-cd9b5dcc6fa0](https://github.com/giacomo-santoni/SC-project/assets/133137485/2c183e87-0ce4-4ea5-82bc-8ee4a2f236fb)
+</p>
+
+Then, the model is tested on a different dataset, the test dataset, and the results are: 
 - test F1 score: ~ 98.93%, test loss ~ 4.7%;
+
+with a confusion matrix of: 
+
 
 METTERE GRAFICI SU ANDAMENTO 
 
