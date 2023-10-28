@@ -52,7 +52,7 @@ Since the files in their original format are too heavy to be uploaded in the Git
 To download these files, follow these steps: 
 1. Check if you have `gdown`, otherwise install it with `pip install gdown`: it is a package needed to download folders from the web
 
-2. Download from Google Drive the *data* folder that contains two files: *data1* and *data2*, each provided with a _response.drdf_ and a _sensors.root_. The command you have to run are: 
+2. Download from Google Drive the *data* folder that contains two files: *data1* and *data2*, each provided with a _response.drdf_ and a _sensors.root_. The command you have to run is: 
 ```
 gdown --folder https://drive.google.com/drive/folders/1iAL9C_re_lVVf_Go8OUbI6DmOm9di53S -O /path/to/this/repo/folder
 
