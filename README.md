@@ -52,7 +52,7 @@ Since the files in their original format are too heavy to be uploaded in the Git
 To download these files, follow these steps: 
 1. Check if you have `gdown`, otherwise install it with `pip install gdown`: it is a package needed to download folders from the web
 
-2. Download from Google Drive the *data* folder that contains two files: *data1* and *data2*, each provided with a _response.drdf_ and a _sensors.root_. The command you have to run is: 
+2. Download from Google Drive the *data* folder that contains two files: *data1* and *data2*, each provided with a simulated-data file and a true-data one. The command you have to run is: 
 ```
 gdown --folder https://drive.google.com/drive/folders/1iAL9C_re_lVVf_Go8OUbI6DmOm9di53S -O /path/to/this/repo/folder
 
@@ -62,8 +62,6 @@ gdown --folder https://drive.google.com/drive/folders/1iAL9C_re_lVVf_Go8OUbI6DmO
 In this project, simulated data are used since the experiment is still being built. They are in _.drdf_ format, created by the researchers of the DUNE group. The data used in this project are stored in 2 _"response.drdf"_ files, each generated after a simulation of 1000 events (i.e. charged particle interaction in the detector with photons production) with 60 and 58 camera configuration. They are organized as a list, where each element is composed of 2 objects: the number of the event and a dictionary. The dictionary gives us information on the photons arrived on the camera: the keys are the names of the cameras and the values are matrices 32x32 where each element represents the number of photons arrived in a pixel. This number isn't integer since it considers the electronic signal. 
 
 These data are loaded and rearranged in the first section _Simulated Data - Preprocessing_.
-
-N.B. CARICARLI SUL DRIVE e poi vedere come farli scaricare e mettere in una cartella giusta DA CAPIRE!!
 
 # 2.2 True Data
 Together with each simulated file _"response.drdf"_, there is the file _"sensors.root"_ with the MC truth of data, that will represent the labels for CNN training. It is a _ROOT_ file: each camera is a ROOT Tree, and each Tree has some variables, organized in TLeaves. The variable of our interest is only _innerPhotons_, which tells us how many photons produced within the camera are detected by the sensor. As before, due to the large dimensions of the file, only the useful data were taken and then saved into a numpy file. 
