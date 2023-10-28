@@ -1,6 +1,6 @@
 # SOFTWARE & COMPUTING for NUCLEAR and SUBNUCLEAR PHYSICS project
 
-> N.B. The instructions to download data are explained in _Dataset_, in _Simulated Data_ and _True Data_ sections.
+> N.B. The instructions to download data are explained in _Dataset_ section.
 
 ## Abstract
 This project is part of the workflow of the simulation chain for the GRAIN detector of the SAND calorimeter in the DUNE experiment. GRAIN, a LAr detector, detects scintillating photons produced inside the Ar volume using cameras, devices formed by a sensor (matrix of SiPM) and an Hadamard mask. These photons can be produced outside or inside the camera: depending on the number of photons produced inside, the camera will be defined as dazzled or not-dazzled. Since the dazzled cameras can't be used in the current reconstruction algorithm, a classification that separates these two classes of images is needed.
@@ -48,25 +48,25 @@ For the reconstruction task, the dazzled cameras can't be used in the current al
 The code has been uploaded in this repo, in a VSCode Jupyter Notebook. It is divided in 5 sections: _Simulated Data - Preprocessing_, where the simulated data are loaded and rearranged; _ROOT "True" Data - RootPreprocessing_, where the data from MonteCarlo simulations are loaded a prepared; _Data Rearrangement_, where data are prepared for the training; _CNN Model_ where model is build and data are trained; _Results_ where some results are reported to evaluate the performance of the model.
 
 # 2. DATASET
-# 2.1 Simulated Data
-In this project, simulated data are used since the experiment is still being built. They are in _.drdf_ format, created by the researchers of the DUNE group. The data used in this project are stored in 2 _"response.drdf"_ files, each generated after a simulation of 1000 events (i.e. charged particle interaction in the detector with photons production) with 60 and 58 camera configuration. They are organized as a list, where each element is composed of 2 objects: the number of the event and a dictionary. The dictionary gives us information on the photons arrived on the camera: the keys are the names of the cameras and the values are matrices 32x32 where each element represents the number of photons arrived in a pixel. This number isn't integer since it considers the electronic signal. Since the files are too heavy to be uploaded in the GitHub repo or Google Drive, the info of interest were taken and saved into a numpy file. Then, the files have been uploaded in Google Drive.
-To download these files, putting them in your Desktop you can do: 
+Since the files in their original format are too heavy to be uploaded in the GitHub repo or Google Drive, the info of interest were taken and saved into numpy files. Then, the files have been uploaded in Google Drive.
+To download these files, follow these steps: 
+1. Check if you have `gdown`, otherwise install it with `pip install gdown`: it is a package needed to download folders from the web
+
+2. Download from Google Drive the *data* folder that contains two files: *data1* and *data2*, each provided with a _response.drdf_ and a _sensors.root_. The command you have to run are: 
 ```
-wget -P /$HOMEPATH/Desktop https://drive.google.com/drive/folders/1iAL9C_re_lVVf_Go8OUbI6DmOm9di53S
+gdown --folder https://drive.google.com/drive/folders/1iAL9C_re_lVVf_Go8OUbI6DmOm9di53S -O /path/to/this/repo/folder
 
 ```
+
+# 2.1 Simulated Data
+In this project, simulated data are used since the experiment is still being built. They are in _.drdf_ format, created by the researchers of the DUNE group. The data used in this project are stored in 2 _"response.drdf"_ files, each generated after a simulation of 1000 events (i.e. charged particle interaction in the detector with photons production) with 60 and 58 camera configuration. They are organized as a list, where each element is composed of 2 objects: the number of the event and a dictionary. The dictionary gives us information on the photons arrived on the camera: the keys are the names of the cameras and the values are matrices 32x32 where each element represents the number of photons arrived in a pixel. This number isn't integer since it considers the electronic signal. 
+
 These data are loaded and rearranged in the first section _Simulated Data - Preprocessing_.
 
 N.B. CARICARLI SUL DRIVE e poi vedere come farli scaricare e mettere in una cartella giusta DA CAPIRE!!
 
 # 2.2 True Data
 Together with each simulated file _"response.drdf"_, there is the file _"sensors.root"_ with the MC truth of data, that will represent the labels for CNN training. It is a _ROOT_ file: each camera is a ROOT Tree, and each Tree has some variables, organized in TLeaves. The variable of our interest is only _innerPhotons_, which tells us how many photons produced within the camera are detected by the sensor. As before, due to the large dimensions of the file, only the useful data were taken and then saved into a numpy file. 
-This file has been uploaded in Google Drive and you can download it just running:
-
-```
-wget -P /$HOMEPATH/Desktop https://drive.google.com/drive/folders/1iAL9C_re_lVVf_Go8OUbI6DmOm9di53S
-
-```
 
 The data have been rearrenged to have a format consistent with the simulated ones and then labelled. The label criterion is based on a consideration on the ratio #inner_photons/#total_photons: if it's larger than 0.1, the camera is considered dazzled, and a 1 is assigned to it, otherwise, is not dazzled. This parameter was considered since sometimes the number of inner photons seems to be large but the photons produced in the remaining part of the detector are way larger. This can occur in situations as the third case presented in Section 1.2.1, when the particle starts to emit before the camera and continues inside. So, if we have looked only at the absolute number of photons we would have discarded a camera that can be useful for the reconstruction.
 
