@@ -66,9 +66,9 @@ For the reconstruction task, the dazzled cameras can't be used in the current al
 The code has been uploaded in this repo, in a VSCode Jupyter Notebook. It is divided in 5 sections: _Simulated Data - Preprocessing_, where the simulated data are loaded and rearranged; _ROOT "True" Data - RootPreprocessing_, where the data from MonteCarlo simulations are loaded a prepared; _Data Rearrangement_, where data are prepared for the training; _CNN Model_ where model is build and data are trained; _Results_ where some results are reported to evaluate the performance of the model.
 
 # 2. DATASET
-Since the files in their original format are too heavy to be uploaded in the GitHub repo or Google Drive, the info of interest were taken and saved into numpy files. Then, the files have been uploaded in Google Drive.
+Since the files in their original format are too heavy to be uploaded in the GitHub repo or Google Drive, the necessaries info were taken from original files and saved into *numpy* files. Then, these files have been uploaded in Google Drive.
 To download these files, follow these steps: 
-1. Check if you have `gdown`, otherwise install it with `pip install gdown`: it is a package needed to download folders from the web
+1. Check if you have `gdown`, otherwise install it with `pip install gdown`: it is a package needed to download folders from the web.
 
 2. Download from Google Drive the *data* folder that contains two files: *data1* and *data2*, each provided with a simulated-data file and a true-data one. The command you have to run is: 
 ```
@@ -93,24 +93,13 @@ This dataset is very imbalanced towards the not-dazzled cameras, with a percenta
 Moreover, I applied a cut on the cameras with less than 40 photons, since they don't give useful information for the track reconstruction, reducing the dataset of 12%.
 Then, I split the dataset into 3: train dataset of $\approx 10^5$ events, validation dataset of $\approx 10^3$ events and test dataset of $\approx 10^4$ events. The augmentation dataset was attached to the train dataset. 
 
-# 3. Code 
+# 3. CODE EXECUTION
 In the section _CNN model_, there is the construction of CNN, through a _Sequential_ model. 
 The optimizer is 'adam', the loss function is a BinaryCrossentropy, since is a binary classification problem and the metric chosen is F1Score since I want to reduce both the number of FN and FP.
-An important feature added to the model is the *class_weight* in the model.fit() function. This was another attempt to solve the imbalancing problem. In this way, the model give more weight and importance to the minority class. The model is trained for 10 epochs. Below the performances of the model during these epochs are shown, in the two plots. 
+An important feature added to the model is the *class_weight* in the model.fit() function. This was another attempt to solve the imbalancing problem. In this way, the model give more weight and importance to the minority class. The model is trained for 10 epochs. 
 
-<p align="center">
-<img width="523" alt="Screenshot 2023-10-18 alle 11 11 18" src="https://github.com/giacomo-santoni/SC-project/assets/133137485/2c183e87-0ce4-4ea5-82bc-8ee4a2f236fb">
-</p>
-
-Then, the model is tested on a different dataset, the test dataset, and the results are: 
-- test F1 score: ~ 98.93%, test loss ~ 4.7%;
-
-with a confusion matrix of: 
-
-METTERE GRAFICI SU ANDAMENTO 
-
+The output of the code can be seen in the notebook, where each piece of code is commented. 
+ 
 # 4. CONCLUSION
-
-
 The CNN model seems good, let's see if increasing the dimensions of the dataset the performances increase.
 
