@@ -9,7 +9,7 @@ This project tries to accomplish this task through a convolutional neural networ
 In _Introduction_, I will introduce the experiment in which this project is set. In _Dataset_, I explain the organization of data and the rearrangements done. In the _CNN model and Example_, I present the model and an example of a possible output of the project. Last section is the _Conclusions_.
 
 ## 1. INTRODUCTION
-### 1.1 Experiment overview
+### 1.1 The DUNE Experiment
 The Deep Underground Neutrino Experiment (DUNE) is a long-baseline neutrino oscillation experiment that is being built in the United States. It will consists of two detectors: a Near Detector, close to Fermilab in Illinois and a Far Detector, in South Dakota, 1300 km away. Below a schematic design of the experiment is presented.
 <p align="center">
 <img width="758" alt="Screenshot 2023-10-19 alle 09 32 51" src="https://github.com/giacomo-santoni/SC-project/assets/133137485/0a0f477e-2ce3-4b4d-aa48-10de63a9adee">
@@ -59,7 +59,7 @@ Hence, matrices of SiPMs are placed as photosensors, each provided with a Hadama
 <img width="523" alt="Screenshot 2023-10-18 alle 11 11 18" src="https://github.com/giacomo-santoni/SC-project/assets/133137485/45bb503d-fc04-4d3a-9f1c-c1094b7fbc52">
 </p>
 <p align="center">
-  <em>Three possible patterns on the camera, depending where photons are produced.</em>
+  <em>Three possible patterns on the camera, depending on where photons are produced.</em>
 </p>
 
 For the reconstruction task, the dazzled cameras can't be used in the current algorithm. For this reason, this project aims to classify the cameras, distinguishing the good ones from the dazzled ones and allowing us to discard the latter ones. Since, as shown above, the classification it's not always clear, a CNN written in Python is used to accomplish this task. Indeed, up to now, this classification is done using the MonteCarlo truth, but when the experiment will be built a classification that relies only on the data will be needed.
