@@ -14,6 +14,9 @@ The Deep Underground Neutrino Experiment (DUNE) is a long-baseline neutrino osci
 <p align="center">
 <img width="758" alt="Screenshot 2023-10-19 alle 09 32 51" src="https://github.com/giacomo-santoni/SC-project/assets/133137485/0a0f477e-2ce3-4b4d-aa48-10de63a9adee">
 </p>
+<p align="center">
+  <em>Schematic design of DUNE experiment.</em>
+</p>
 
 Basically, the motivation for the design of this experiment is a more precise study of some neutrinos' properties: the mass hierarchy, the determination of CP-violating phase &delta;<sub>CP</sub>, the measurement of the octant &theta;<sub>23</sub> and precise calculations of all the mixing angles.
 Moreover, it will contribute in the study of proton lifetime and in Beyond Standard Model physics.
@@ -31,12 +34,13 @@ SAND (System for on-Axis Neutrino Detection) is the third detector and it's fixe
 </p>
 
 #### 1.2.1 GRAIN detector
-The GRAIN detector, filled with ~ 1 ton of Liquid Argon, is placed upstream in the SAND volume. It will provide inclusive Ar interactions to find systematic uncertainties from nuclear effects located on-axis, cross-calibrating with other detectors.<br> Since the construction of a LAr TPC in the ND is not easy due to numerous events and the pile-up that occur, a new detection technique is developed: the tracking and calorimetry system of GRAIN is based on the exploitation of the LAr scintillation light through imaging. Indeed, charged particles in LAr ionize and excite Ar atoms. Then, with the subsequent de-excitation, a photon emission is induced. 
+The GRAIN detector, filled with ~ 1 ton of Liquid Argon, is placed upstream in the SAND volume. It will provide inclusive Ar interactions to find systematic uncertainties from nuclear effects located on-axis, cross-calibrating with other detectors.
 
 <p align="center">
 <img width="185" alt="image" src="https://github.com/giacomo-santoni/SC-project/assets/133137485/6b086b6d-ca07-4a65-8c1d-39f18c07093f">
 </p>
 
+Since the construction of a LAr TPC in the ND is not easy due to numerous events and the pile-up that occur, a new detection technique is developed: the tracking and calorimetry system of GRAIN is based on the exploitation of the LAr scintillation light through imaging. Indeed, charged particles in LAr ionize and excite Ar atoms. Then, with the subsequent de-excitation, a photon emission is induced. 
 Matrices of SiPMs are placed as photosensors, each provided with a Hadamard's mask. The combination of mask and sensor is the so-called camera. The approach chosen to study the in this detector is the Coded Aperture Imaging technique. The images formed on the sensors are convolutions of images from each hole. We can have different situations depending on the photon emission. Basically, are three, as it is shown in the figure below:
 * the photons are emitted before the camera, hence on the sensor there will be a clear mask pattern
 * the photons are emitted inside the camera from a particle that hits straight the camera, then on the sensor there will be a peak of photon in one single point
