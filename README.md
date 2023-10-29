@@ -14,7 +14,7 @@ The Deep Underground Neutrino Experiment (DUNE) is a long-baseline neutrino osci
 <p align="center">
 <img width="758" alt="Screenshot 2023-10-19 alle 09 32 51" src="https://github.com/giacomo-santoni/SC-project/assets/133137485/0a0f477e-2ce3-4b4d-aa48-10de63a9adee">
 </p>
-Basically, the motivation for the design of this experiment is a more precise study of some neutrinos' properties: the mass hierarchy, the determination of CP-violating phase $\delta_{CP}$, the measurement of the octant $\theta_{23}$ and precise calculations of all the mixing angles.
+Basically, the motivation for the design of this experiment is a more precise study of some neutrinos' properties: the mass hierarchy, the determination of CP-violating phase \delta_{CP}, the measurement of the octant $\theta_{23}$ and precise calculations of all the mixing angles.
 Moreover, it will contribute in the study of proton lifetime and in Beyond Standard Model physics.
 
 ### 1.2 The detector 
