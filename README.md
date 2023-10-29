@@ -1,4 +1,4 @@
-# MACHINE LEARNING METHOD for DAZZLED CAMERA RECOGNITION
+# MACHINE LEARNING METHOD for DAZZLED CAMERAS RECOGNITION
 
 > N.B. The instructions to download data are explained in _Dataset_ section.
 
@@ -18,7 +18,7 @@ Basically, the motivation for the design of this experiment is a more precise st
 Moreover, it will contribute in the study of proton lifetime and in Beyond Standard Model physics.
 
 ### 1.2 The detector 
-As said before, DUNE is provided with two main detectors since it's an neutrino oscillation experiment. <br> The Far Detector is a LArTPC, made of 4 modules of 10 ktons each. These modules combine tracking and calorimetry, allowing us to identify $\nu_{mu}$ interactions and reconstruct particle's energies. <br> The Near Detector is made of multiple sub-detectors, as it shown in the scheme below. A LArTPC is present, to be consistent with the Far one. In the Phase I, The Muon Spectrometer (TMS), a detector that measures the momentum and charge sign of the muons will be built; in Phase II it will be substituted with ND-GAr, a magnetized high-pressure gaseous argon TPC with a surrounding calorimeter. It allows particle-by-particle charge and momentum reconstruction. These two detectors can move off-axis, so they can study interaction of neutrinos at different energy spectra. 
+As said before, DUNE is provided with two main detectors since it's an neutrino oscillation experiment. <br> The Far Detector is a LArTPC, that combines tracking and calorimetry, allowing us to identify $\nu_{mu}$ interactions and reconstruct particle's energies. <br> The Near Detector is made of multiple sub-detectors, as it shown in the scheme below. A LArTPC is present, to be consistent with the Far one. In the Phase I, The Muon Spectrometer (TMS), a detector that measures the momentum and charge sign of the muons will be built; in Phase II it will be substituted with ND-GAr, a magnetized high-pressure gaseous argon TPC with a surrounding calorimeter. It allows particle-by-particle charge and momentum reconstruction. These two detectors can move off-axis, so they can study interaction of neutrinos at different energy spectra. 
 <p align="center">
 <img width="594" alt="Screenshot 2023-10-19 alle 10 28 15" src="https://github.com/giacomo-santoni/SC-project/assets/133137485/2b4a1099-72e3-4a93-b9d8-9773b1b9a63d">
 </p>
@@ -70,12 +70,12 @@ The data have been rearrenged to have a format consistent with the simulated one
 
 These modifications were done since these data have to represent only the state of the camera, i.e. dazzled/not dazzled. So at the end, an array of 0 and 1 was obtained.
 
-# 2.3 Dataset features and rearrangement
+# 2.3 Dataset features and rearrangements
 This dataset is very imbalanced towards the not-dazzled cameras, with a percentage of 99.7% - 0.3%. So, with this kind of data, a neural network would be very good in finding the not-dazzled cameras, but only because they are in larger amount. For this reason, I applied an augmentation on the dazzled cameras, increasing their abundance up 35% with respect to the total number of events.
 Moreover, I applied a cut on the cameras with less than 40 photons, since they don't give useful information for the track reconstruction, reducing the dataset of 12%.
 Then, I split the dataset into 3: train dataset of $\approx 10^5$ events, validation dataset of $\approx 10^3$ events and test dataset of $\approx 10^4$ events. The augmentation dataset was attached to the train dataset. 
 
-# 3. CNN MODEL and RESULTS
+# 3. CNN MODEL and EXAMPLE
 In the section _CNN model_, there is the construction of CNN, through a _Sequential_ model. 
 The optimizer is 'adam', the loss function is a BinaryCrossentropy, since is a binary classification problem and the metric chosen is F1Score since I want to reduce both the number of FN and FP.
 An important feature added to the model is the class_weight in the model.fit() function. This was another attempt to solve the imbalancing problem. In this way, the model give more weight and importance to the minority class. The model is trained for 10 epochs. Below the performances of the model during these epochs are shown, in the two plots. 
