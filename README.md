@@ -14,6 +14,9 @@ The Deep Underground Neutrino Experiment (DUNE) is a long-baseline neutrino osci
 <p align="center">
 <img width="758" alt="Screenshot 2023-10-19 alle 09 32 51" src="https://github.com/giacomo-santoni/SC-project/assets/133137485/0a0f477e-2ce3-4b4d-aa48-10de63a9adee">
 </p>
+<p>
+  <center><em>Schematic design of DUNE experiment.</em></center>
+</p>
 Basically, the motivation for the design of this experiment is a more precise study of some neutrinos' properties: the mass hierarchy, the determination of CP-violating phase &delta;<sub>CP</sub>, the measurement of the octant &theta;<sub>23</sub> and precise calculations of all the mixing angles.
 Moreover, it will contribute in the study of proton lifetime and in Beyond Standard Model physics.
 
@@ -21,6 +24,7 @@ Moreover, it will contribute in the study of proton lifetime and in Beyond Stand
 As said before, DUNE is provided with two main detectors since it's an neutrino oscillation experiment. <br> The Far Detector is a LArTPC, that combines tracking and calorimetry, allowing us to identify $\nu_{\mu}$ interactions and reconstruct particle's energies. <br> The Near Detector is made of multiple sub-detectors, as it shown in the scheme below. A LArTPC is present, to be consistent with the Far one. In the Phase I, The Muon Spectrometer (TMS), a detector that measures the momentum and charge sign of the muons will be built; in Phase II it will be substituted with ND-GAr, a magnetized high-pressure gaseous argon TPC with a surrounding calorimeter. It allows particle-by-particle charge and momentum reconstruction. These two detectors can move off-axis, so they can study interaction of neutrinos at different energy spectra. 
 <p align="center">
 <img width="594" alt="Screenshot 2023-10-19 alle 10 28 15" src="https://github.com/giacomo-santoni/SC-project/assets/133137485/2b4a1099-72e3-4a93-b9d8-9773b1b9a63d">
+<em></em>
 </p>
 
 SAND (System for on-Axis Neutrino Detection) is the third detector and it's fixed on-axis. It has the aim of measuring neutrino beam spectrum and performing tracking and calorimetry measurements. Below, the design it is shown. The idea of this system comes from an existing magnet and ECAL of KLOE detector, used in DAFNE experiment at INFN LNF Laboratory. <br> SAND consists in two subdetectors: a Straw Tube Target tracker (STT) for momentum measurements and the GRAIN (GRanular Argon for Interactions of Neutrinos) detector. 
