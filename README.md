@@ -1,4 +1,4 @@
-# SOFTWARE & COMPUTING for NUCLEAR and SUBNUCLEAR PHYSICS project
+# MACHINE LEARNING METHOD for DAZZLED CAMERA RECOGNITION
 
 > N.B. The instructions to download data are explained in _Dataset_ section.
 
