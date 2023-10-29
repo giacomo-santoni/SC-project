@@ -99,8 +99,9 @@ The optimizer is 'adam', the loss function is a BinaryCrossentropy, since is a b
 An important feature added to the model is the class_weight in the model.fit() function. This was another attempt to solve the imbalancing problem. In this way, the model give more weight and importance to the minority class. The model is trained for 10 epochs. Below the performances of the model during these epochs are shown, in the two plots. 
 
 <p align="center">
-![668239b0-ece9-4c00-bafb-cd9b5dcc6fa0](https://github.com/giacomo-santoni/SC-project/assets/133137485/2c183e87-0ce4-4ea5-82bc-8ee4a2f236fb)
+<img width="523" alt="Screenshot 2023-10-18 alle 11 11 18" src="https://github.com/giacomo-santoni/SC-project/assets/133137485/2c183e87-0ce4-4ea5-82bc-8ee4a2f236fb">
 </p>
+
 
 Then, the model is tested on a different dataset, the test dataset, and the results are: 
 - test F1 score: ~ 98.93%, test loss ~ 4.7%;
