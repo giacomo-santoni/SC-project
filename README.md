@@ -39,6 +39,9 @@ The GRAIN detector, filled with ~ 1 ton of Liquid Argon, is placed upstream in t
 <p align="center">
 <img width="185" alt="image" src="https://github.com/giacomo-santoni/SC-project/assets/133137485/6b086b6d-ca07-4a65-8c1d-39f18c07093f">
 </p>
+<p align="center">
+  <em>Scheamtic design of GRAIN detector configuration.</em>
+</p>
 
 Since the construction of a LAr TPC in the ND is not easy due to numerous events and the pile-up that occur, a new detection technique is developed: the tracking and calorimetry system of GRAIN is based on the exploitation of the LAr scintillation light through imaging. Indeed, charged particles in LAr ionize and excite Ar atoms. Then, with the subsequent de-excitation, a photon emission is induced. 
 Matrices of SiPMs are placed as photosensors, each provided with a Hadamard's mask. The combination of mask and sensor is the so-called camera. The approach chosen to study the in this detector is the Coded Aperture Imaging technique. The images formed on the sensors are convolutions of images from each hole. We can have different situations depending on the photon emission. Basically, are three, as it is shown in the figure below:
