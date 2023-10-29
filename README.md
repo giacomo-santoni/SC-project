@@ -93,7 +93,7 @@ This dataset is very imbalanced towards the not-dazzled cameras, with a percenta
 Moreover, I applied a cut on the cameras with less than 40 photons, since they don't give useful information for the track reconstruction, reducing the dataset of 12%.
 Then, I split the dataset into 3: train dataset of $\approx 10^5$ events, validation dataset of $\approx 10^3$ events and test dataset of $\approx 10^4$ events. The augmentation dataset was attached to the train dataset. 
 
-# 3. CNN MODEL and EXAMPLE
+# 3. CNN MODEL
 In the section _CNN model_, there is the construction of CNN, through a _Sequential_ model. 
 The optimizer is 'adam', the loss function is a BinaryCrossentropy, since is a binary classification problem and the metric chosen is F1Score since I want to reduce both the number of FN and FP.
 An important feature added to the model is the class_weight in the model.fit() function. This was another attempt to solve the imbalancing problem. In this way, the model give more weight and importance to the minority class. The model is trained for 10 epochs. Below the performances of the model during these epochs are shown, in the two plots. 
