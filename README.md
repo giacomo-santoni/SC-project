@@ -68,7 +68,7 @@ The code has been uploaded in this repo, in a VSCode Jupyter Notebook. It is div
 # 2. DATASET
 Since the files in their original format are too heavy to be uploaded in the GitHub repo or Google Drive, the necessary information were taken from the original files and saved into *numpy* files. Then, these files were uploaded to Google Drive.
 To download these files, follow these steps: 
-1. Check if you have `gdown`, otherwise you can install it running the command `pip install gdown`: it is a package needed to download folders from the web.
+1. Check if you have `gdown`, otherwise you can install it through a package manager such as pip with `pip install gdown`. It is a package needed to download folders from the web.
 
 2. Download from Google Drive the *data* folder that contains two files: *data1* and *data2*, each provided with a simulated-data file and a true-data one. The command you have to run is: 
 ```
@@ -98,7 +98,10 @@ In the section _CNN model_, there is the construction of CNN, through a _Sequent
 The optimizer is 'adam', the loss function is a BinaryCrossentropy, since is a binary classification problem and the metric chosen is F1Score since I want to reduce both the number of FN and FP.
 An important feature added to the model is the *class_weight* in the model.fit() function. This was another attempt to solve the imbalancing problem. In this way, the model gives more weight and importance to the minority class. The model is trained for 10 epochs. 
 
-The output of the code can be seen in the notebook, where each piece of code is commented on. 
- 
+To execute correctly the code check if you have the following libraries before running: 
+- tensorflow
+- scikit-learn
+
+The output of the code can be seen in the notebook, where each piece of code is commented on.  
 # 4. CONCLUSION
 The CNN model seems good... da finire.
