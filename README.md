@@ -76,19 +76,19 @@ gdown --folder https://drive.google.com/drive/folders/1iAL9C_re_lVVf_Go8OUbI6DmO
 
 ```
 
-# 2.1 Simulated Data
+## 2.1 Simulated Data
 In this project, simulated data are used since the experiment is still being built. They are in _.drdf_ format, created by the researchers of the DUNE group. The data used in this project are stored in 2 _"response.drdf"_ files, each generated after a simulation of 1000 events (i.e. charged particle interaction in the detector with photons production) with 60 and 58 camera configurations. They are organized as a list, where each element is composed of 2 objects: the number of the event and a dictionary. The dictionary gives us information on the photons arrived on the camera: the keys are the names of the cameras and the values are matrices 32x32 where each element represents the number of photons arrived in a pixel. This number isn't an integer since it considers the electronic signal. 
 
 These data are loaded and rearranged in the first section _Simulated Data - Preprocessing_.
 
-# 2.2 True Data
+## 2.2 True Data
 Together with each simulated file _"response.drdf"_, there is the file _"sensors.root"_ with the MC truth of data, that will represent the labels for CNN training. It is a _ROOT_ file: each camera is a ROOT Tree, and each Tree has some variables, organized in TLeaves. The variable of our interest is only _innerPhotons_, which tells us how many photons produced within the camera are detected by the sensor. As before, due to the large dimensions of the file, only the useful data were taken and then saved into a numpy file. 
 
 The data have been rearranged to have a format consistent with the simulated ones and then labeled. The label criterion is based on a consideration of the ratio #inner_photons/#total_photons: if it's larger than 0.1, the camera is considered dazzled, and a 1 is assigned to it, otherwise, is not dazzled. This parameter was considered since sometimes the number of inner photons seems to be large but the photons produced in the remaining part of the detector are way larger. This can occur in situations like the third case presented in Section 1.2.1, when the particle starts to emit before the camera and continues inside. So, if we had looked only at the absolute number of photons we would have discarded a camera that can be useful for the reconstruction.
 
 These modifications were done since these data have to represent only the state of the camera, i.e. dazzled/not dazzled. So at the end, an array of 0 and 1 was obtained.
 
-# 2.3 Dataset features and rearrangements
+## 2.3 Dataset features and rearrangements
 This dataset is very imbalanced towards the not-dazzled cameras, with a percentage of 99.7% - 0.3%. So, with this kind of data, a neural network would be very good in finding the not-dazzled cameras, but only because they are in larger amounts. For this reason, I applied an augmentation on the dazzled cameras, increasing their abundance up 35% with respect to the total number of events.
 Moreover, I applied a cut on the cameras with less than 40 photons, since they don't give useful information for the track reconstruction, reducing the dataset by 12%.
 Then, I split the dataset into 3: train dataset of $\approx 10^5$ events, validation dataset of $\approx 10^3$ events and test dataset of $\approx 10^4$ events. The augmentation dataset was attached to the training dataset. 
