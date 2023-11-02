@@ -68,7 +68,7 @@ The code has been uploaded in this repo, in a VSCode Jupyter Notebook. It is div
 # 2. DATASET
 Since the files in their original format are too heavy to be uploaded in the GitHub repo or Google Drive, the necessary information were taken from the original files and saved into *numpy* files. Then, these files were uploaded to Google Drive.
 To download these files, follow these steps: 
-1. Check if you have `gdown`, otherwise install it with `pip install gdown`: it is a package needed to download folders from the web.
+1. Check if you have `gdown`, otherwise you can install it running the command `pip install gdown`: it is a package needed to download folders from the web.
 
 2. Download from Google Drive the *data* folder that contains two files: *data1* and *data2*, each provided with a simulated-data file and a true-data one. The command you have to run is: 
 ```
