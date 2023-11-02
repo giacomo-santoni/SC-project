@@ -99,15 +99,13 @@ In the section _CNN model_, there is the construction of CNN, through a _Sequent
 The optimizer is 'adam', the loss function is a BinaryCrossentropy, since is a binary classification problem and the metric chosen is F1Score since I want to reduce both the number of FN and FP.
 An important feature added to the model is the *class_weight* in the model.fit() function. This was another attempt to solve the imbalancing problem. In this way, the model gives more weight and importance to the minority class. The model is trained for 10 epochs. 
 
-To execute correctly the notebook, you need `tensorflow` and `scikit-learn` libraries installed: 
-If they aren't already installed, you can do so by running:
+To execute correctly the notebook, you need `tensorflow` and `scikit-learn` libraries installed. If they aren't already installed, you can do so by running:
 ```
 pip install tensorflow
 pip install -U scikit-learn
 ```
 
+The output of the code can be seen in the notebook, where each piece of code is commented on.
 
-
-The output of the code can be seen in the notebook, where each piece of code is commented on.  
 # 4. CONCLUSION
-The CNN model
+The code works quite good, but it has to be improved in order to reach better results.
