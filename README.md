@@ -1,6 +1,6 @@
 # MACHINE LEARNING METHOD for DAZZLED CAMERAS RECOGNITION
 
-> N.B. Before running cnn_model.ipynb, consult the _Dataset_ section for the instructions to download data and the _Code execution_ section for the libraries needed. 
+> N.B. Before running **cnn_model.ipynb**, consult the _Dataset_ section for the instructions to download data and the _Code execution_ section for the libraries needed. 
 
 ## Abstract
 This project is part of the workflow of the simulation chain for the GRAIN detector within the SAND calorimeter of the DUNE experiment. GRAIN, which is a LAr (Liquid Argon) detector, detects scintillating photons produced inside the Ar volume using specialized cameras. These cameras consist of a sensor (matrix of SiPMs) and a Hadamard mask. These photons can be produced either from outside or inside the camera: depending on the number of photons generated internally, the camera is categorized as either dazzled or not-dazzled. Due to limitations in the current reconstruction algorithm, the dazzled cameras can't be used. Hence, a classification that separates these two sets of images is needed.
@@ -99,10 +99,15 @@ In the section _CNN model_, there is the construction of CNN, through a _Sequent
 The optimizer is 'adam', the loss function is a BinaryCrossentropy, since is a binary classification problem and the metric chosen is F1Score since I want to reduce both the number of FN and FP.
 An important feature added to the model is the *class_weight* in the model.fit() function. This was another attempt to solve the imbalancing problem. In this way, the model gives more weight and importance to the minority class. The model is trained for 10 epochs. 
 
-To execute correctly the code check if you have the following libraries before running: 
-- tensorflow
-- scikit-learn
+To execute correctly the notebook, you need `tensorflow` and `scikit-learn` libraries installed: 
+If they aren't already installed, you can do so by running:
+```
+pip install tensorflow
+pip install -U scikit-learn
+```
+
+
 
 The output of the code can be seen in the notebook, where each piece of code is commented on.  
 # 4. CONCLUSION
-The CNN model seems good... da finire.
+The CNN model
