@@ -101,5 +101,4 @@ An important feature added to the model is the *class_weight* in the model.fit()
 The output of the code can be seen in the notebook, where each piece of code is commented on. 
  
 # 4. CONCLUSION
-The CNN model seems good, let's see if increasing the dimensions of the dataset the performance increases.
-
+The CNN model seems good... da finire.
