@@ -1,6 +1,6 @@
 # MACHINE LEARNING METHOD for DAZZLED CAMERAS RECOGNITION
 
-> N.B. Before running cnn_model.ipynb, consult the _Dataset_ section for the instructions to download data and the _Code execution_ section for the libraries needed. 
+> N.B. Before running ./cnn_model.ipynb, consult the _Dataset_ section for the instructions to download data and the _Code execution_ section for the libraries needed. 
 
 ## Abstract
 This project is part of the workflow of the simulation chain for the GRAIN detector within the SAND calorimeter of the DUNE experiment. GRAIN, which is a LAr (Liquid Argon) detector, detects scintillating photons produced inside the Ar volume using specialized cameras. These cameras consist of a sensor (matrix of SiPMs) and a Hadamard mask. These photons can be produced either from outside or inside the camera: depending on the number of photons generated internally, the camera is categorized as either dazzled or not-dazzled. Due to limitations in the current reconstruction algorithm, the dazzled cameras can't be used. Hence, a classification that separates these two sets of images is needed.
