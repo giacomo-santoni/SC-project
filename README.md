@@ -112,4 +112,4 @@ pip install -U scikit-learn
 The notebook provides the output of the each code segment along with corresponidng comments.
 
 # 4. CONCLUSION
-The code works reasonably well, but it has to be improved in order to reach better results.
+The code works reasonably well, but it has to be improved in order to reach better results. In particular, a possible improvement can arise from a redefinition of the labeling criterion. Currently, there are still some cameras that are very difficult to identify. Furthermore, it is possible to work on the architecture of the neural network by varying the hyperparameters, in order to find the best combination.
