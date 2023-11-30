@@ -71,14 +71,9 @@ The code has been uploaded to this repository as a VSCode Jupyter Notebook. It i
 
 # 2. DATASET
 Since the files in their original format are too heavy to be uploaded in the GitHub repo or Google Drive, the necessary information were taken from the original files and saved into *numpy* files. Then, these files were uploaded to Google Drive.
-To download these files, follow these steps: 
-1. If you don't have `gdown` already installed, you can install it by running:
+To download these files, just run the first box of the notebook. But before, if you don't have `gdown` already installed, you can install it by running:
 ```
 pip install gdown
-```
-2. Download the *data* folder from Google Drive link provided in thte following command, being careful to place the *data* folder in the folder of this repository. It contains two files: *data1* and *data2*, each provided with a simulated-data file and a true-data one. So, you can run this command, : 
-```
-gdown --folder https://drive.google.com/drive/folders/1iAL9C_re_lVVf_Go8OUbI6DmOm9di53S -O /path/to/this/repo/folder
 ```
 
 ## 2.1 Simulated Data
