@@ -8,6 +8,20 @@ This project tries to achieve this objective by employing a convolutional neural
 
 The _Introduction_ provides an overview of the experiment, within which this project is situated. The _Dataset_ section presents the data organization and the necessary adjustments made. In the _Code execution_ section, the model is outlined. The final section includes the _Conclusions_.
 
+## Commands to run the project
+Before running **cnn_model.ipynb** please read the following few lines.
+
+Since the files in their original format are too heavy to be uploaded in the GitHub repo or Google Drive, the necessary information were taken from the original files and saved into *numpy* files. Then, these files were uploaded to Google Drive.
+To download these files, just run the first box of the notebook. But before, if you don't have `gdown` already installed, you can install it by running:
+```
+pip install gdown
+```
+
+To run the notebook successfully, you need `tensorflow` and `scikit-learn` libraries installed. If they aren't already installed, you can do so by running:
+```
+pip install tensorflow
+pip install -U scikit-learn
+```
 
 ## 1. INTRODUCTION
 ### 1.1 The DUNE Experiment
@@ -72,12 +86,6 @@ The code has been uploaded to this repository as a VSCode Jupyter Notebook. It i
 * _Results_ where some results are reported to evaluate the performance of the model.
 
 # 2. DATASET
-Since the files in their original format are too heavy to be uploaded in the GitHub repo or Google Drive, the necessary information were taken from the original files and saved into *numpy* files. Then, these files were uploaded to Google Drive.
-To download these files, just run the first box of the notebook. But before, if you don't have `gdown` already installed, you can install it by running:
-```
-pip install gdown
-```
-
 ## 2.1 Simulated Data
 In this project, simulated data are used, as the experiment is still under construction. They are in _.drdf_ format, created by the researchers of the DUNE group. The data used in this project are stored in 2 _"response.drdf"_ files, each generated after a simulation of 1000 events (i.e. charged particle interaction in the detector with photons production) with 60 and 58 camera configurations. They are organized as a list, where each element consists of 2 objects: the event number and a dictionary. The dictionary gives us information on the photons arrived on the camera: the keys are the names of the cameras and the values are matrices 32x32 where each element represents the number of photons arrived in a pixel. This number isn't an integer since it considers the electronic signal and it has been extrapolated and stored in the simulated numpy file.
 
@@ -100,13 +108,7 @@ In the section _CNN model_, there is the construction of CNN through a _Sequenti
 The optimizer is 'adam', the loss function is a BinaryCrossentropy, since is a binary classification problem, and the chosen metric is F1Score to minimize both the number of false negatives (FN) and false positives (FP).
 An important feature added to the model is the *class_weight* in the model.fit() function. This was another attempt to solve the imbalancing problem. In this way, the model gives more weight and importance to the minority class. The model is trained for 10 epochs. 
 
-To run the notebook successfully, you need `tensorflow` and `scikit-learn` libraries installed. If they aren't already installed, you can do so by running:
-```
-pip install tensorflow
-pip install -U scikit-learn
-```
-
-The notebook provides the output of the each code segment along with corresponidng comments.
+The notebook provides the output of the each code segment along with corresponding comments.
 
 # 4. CONCLUSION
 The code works reasonably well, but it has to be improved in order to reach better results. In particular, a possible improvement can arise from a redefinition of the labeling criterion. Currently, there are still some cameras that are very difficult to identify. Furthermore, it is possible to work on the architecture of the neural network by varying the hyperparameters, in order to find the best combination.
