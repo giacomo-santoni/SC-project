@@ -17,7 +17,7 @@ To download these files, just run the first box of the notebook. But before, if 
 pip install gdown
 ```
 
-To run the notebook successfully, you need `tensorflow` and `scikit-learn` libraries installed. If they aren't already installed, you can do so by running:
+Moreover, you need `tensorflow` and `scikit-learn` libraries installed. If they aren't already installed, you can do so by running:
 ```
 pip install tensorflow
 pip install -U scikit-learn
