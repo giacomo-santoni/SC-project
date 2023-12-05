@@ -3,10 +3,10 @@
 > N.B. Before running **cnn_model.ipynb**, please refer to the _Dataset_ section for instructions on downloading data and to the _Code execution_ section for the required libraries. 
 
 ## Abstract
-This project is part of the workflow of the simulation chain for the GRAIN detector within the SAND calorimeter of the DUNE experiment. GRAIN, which is a LAr (Liquid Argon) detector, detects scintillating photons produced inside the Ar volume using specialized cameras. These cameras consist of a sensor (matrix of SiPMs) and a Hadamard mask. These photons can be produced either from outside or inside the camera: depending on the number of photons generated internally, the camera is categorized as either dazzled or not-dazzled. Due to limitations in the current reconstruction algorithm, the dazzled cameras can't be used. Hence, a classification that separates these two sets of images is needed.
+This project is part of the workflow of the simulation chain for the GRAIN detector within the SAND calorimeter of the DUNE experiment. GRAIN, which is a LAr (Liquid Argon) detector, detects scintillating photons produced inside the Ar volume using specialized cameras. These cameras consist of a sensor (matrix of SiPMs) and a Hadamard mask. These photons can be produced either from outside or inside the camera: depending on the number of photons internally generated, the camera is categorized as either dazzled or not-dazzled. Due to limitations in the current reconstruction algorithm, the dazzled cameras cannot be used. Hence, a classification that separates these two sets of images is needed.
 This project tries to achieve this objective by employing a convolutional neural network. 
 
-The _Introduction_, provides an overview of the experiment within which this project is situated. The _Dataset_ section presents the data organization and the necessary adjustments made. In the _Code execution_ section, the model is outlined. The final section includes the _Conclusions_.
+The _Introduction_ provides an overview of the experiment, within which this project is situated. The _Dataset_ section presents the data organization and the necessary adjustments made. In the _Code execution_ section, the model is outlined. The final section includes the _Conclusions_.
 
 ## 1. INTRODUCTION
 ### 1.1 The DUNE Experiment
