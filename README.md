@@ -64,7 +64,8 @@ Hence, matrices of SiPMs are placed as photosensors, each equipped with a Hadama
 
 To address the reconstruction task, the dazzled cameras can't be used in the current algorithm. Hence, this project aims to classify the cameras, distinguishing the good ones from the dazzled ones and allowing the exclusion of the latter. Since, as shown above, the classification is not always clear, a Python-based CNN is employed to accomplish this task. Currently, this classification is done using the MonteCarlo truth, but once the experiment will be operative a data-driven classification will be needed.
 The code has been uploaded to this repository as a VSCode Jupyter Notebook. It is divided into five sections: 
-* _Simulated Data - Preprocessing_, where the simulated data are loaded and rearranged; * _ROOT "True" Data - RootPreprocessing_, where the data from MonteCarlo simulations are loaded a prepared;
+* _Simulated Data - Preprocessing_, where the simulated data are loaded and rearranged;
+* _ROOT "True" Data - RootPreprocessing_, where the data from MonteCarlo simulations are loaded a prepared;
 * _Data Rearrangement_, where data are prepared for the training;
 * _CNN Model_ where the model is built and data are trained;
 * _Results_ where some results are reported to evaluate the performance of the model.
