@@ -1,6 +1,6 @@
 # MACHINE LEARNING METHOD for DAZZLED CAMERAS RECOGNITION
 
-> N.B. Before running **cnn_model.ipynb**, please refer to the _Dataset_ section for instructions on downloading data and to the _Code execution_ section for the required libraries. 
+> N.B. Before running **cnn_model.ipynb**, please refer to the _Before the execution_ paragraph for instructions on downloading data and for the required libraries. 
 
 ## Abstract
 <p align="justify"> This project is part of the workflow of the simulation chain for the GRAIN detector within the SAND calorimeter of the DUNE experiment. GRAIN, which is a LAr (Liquid Argon) detector, detects scintillating photons produced inside the Ar volume using specialized cameras. These cameras consist of a sensor (matrix of SiPMs) and a Hadamard mask. These photons can be produced either from outside or inside the camera: depending on the number of photons internally generated, the camera is categorized as either dazzled or not-dazzled. Due to limitations in the current reconstruction algorithm, the dazzled cameras cannot be used. Hence, a classification that separates these two sets of images is needed.</p>
@@ -9,7 +9,7 @@ This project tries to achieve this objective by employing a convolutional neural
 The _Introduction_ provides an overview of the experiment, within which this project is situated. The _Dataset_ section presents the data organization and the necessary adjustments made. In the _Code execution_ section, the model is outlined. The final section includes the _Conclusions_.
 
 ## Before the execution
-Before running **cnn_model.ipynb** please read the following few lines.
+For a successful execution of the project, read the following lines.
 
 Since the files in their original format are too heavy to be uploaded in the GitHub repo or Google Drive, the necessary information were taken from the original files and saved into *numpy* files. Then, these files were uploaded to Google Drive.
 To download these files, just run the first box of the notebook. But before, if you don't have `gdown` already installed, you can install it by running:
