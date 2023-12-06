@@ -28,7 +28,6 @@ At last, you can clone this repository by running the command:
 git clone
 ```
 
-
 The rest of the code is explained in _Code execution_ section and directly in the notebook.
 
 ## 1. INTRODUCTION
