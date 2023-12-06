@@ -74,7 +74,7 @@ The GRAIN (GRanular Argon for Interaction of Neutrinos) detector, filled with ~ 
 
 Given the challenges associated with constructing an LAr TPC in the Near Detector due to numerous events and the pile-up, a novel detection technique has been developed. The tracking and calorimetry system of GRAIN is based on the exploitation of the LAr scintillation light through imaging. Indeed, charged particles in LAr ionize and excite Ar atoms, resulting in photon emission during subsequent de-excitation.
 Hence, matrices of SiPMs are placed as photosensors, each equipped with a Hadamard mask. The combination of mask and sensor constitutes a "camera". The chosen approach to study this detector is the Coded Aperture Imaging technique. The images captured by the sensors are convolutions of images from each hole. We can have different situations depending on the photon emission. Basically, there are three, as shown in the figure below:
-* the photons are emitted before the camera, hence on the sensor there will be a clear mask pattern (top image)
+* the photons are emitted before the camera, hence on the sensor there will be a clear mask pattern (top image and central arrow)
 * the photons are emitted inside the camera from a particle that hits the camera, then on the sensor there will be a peak of photons in one single point (central image and central arrow)
 * the photons are emitted both inside and outside the camera, from an oblique particle: this leads to an unclear pattern on the sensor (bottom image and top arrow)
 
