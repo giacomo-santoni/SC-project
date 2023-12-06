@@ -41,7 +41,8 @@ The Deep Underground Neutrino Experiment (DUNE) is a long-baseline neutrino osci
 </p>
 
 The experiment aims to provide a more precise understanding of some neutrino properties, including the mass hierarchy, determination of CP-violating phase &delta;<sub>CP</sub>, measurement of the octant &theta;<sub>23</sub>, and accurate calculations of all the mixing angles.
-Additionally, it will contribute to the study of proton lifetime and Beyond Standard Model physics.
+Additionally, it will contribute to the study of proton lifetime and Beyond Standard Model physics. 
+According to preliminary predictions, the detectors will work at full capacity by the end of this decade ($\approx$ 2030).
 
 ### 1.2 The detector 
 As mentioned earlier, DUNE is provided with two main detectors since it's a neutrino oscillation experiment. <br> The Far Detector is a Liquid Argon Time Projection Chamber (LArTPC), that combines tracking and calorimetry, allowing us to identify interactions involving $\nu_{\mu}$ and reconstruct particle's energies. <br> The Near Detector comprises multiple sub-detectors, as it is shown in the scheme below. A LArTPC is present, to be consistent with the Far one. In Phase I, The Muon Spectrometer (TMS) will be constructed to measure muon momentum and charge sign; in Phase II it will be replaced by ND-GAr, a magnetized high-pressure gaseous argon TPC with a surrounding calorimeter. It allows particle-by-particle charge and momentum reconstruction. These two detectors can move off-axis to study neutrino interactions at different energy spectra. 
