@@ -25,7 +25,7 @@ pip install -U scikit-learn
 ```
 At last, you can clone this repository by running the command: 
 ```
-git clone
+git clone https://github.com/giacomo-santoni/SC-project.git
 ```
 
 The rest of the code is explained in _Code execution_ section and directly in the notebook.
