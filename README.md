@@ -8,7 +8,7 @@ This project is part of the workflow of the simulation chain for the GRAIN detec
 The _Introduction_ provides an overview of the experiment, within which this project is situated. The _Dataset_ section presents the data organization and the necessary adjustments made. In the _Code execution_ section, the model is outlined. The final section includes the _Conclusions_.
 
 ## Before the execution
-For a successful execution of the project, read the following lines.
+For a successful execution of the project, note the following lines.
 
 Since the files in their original format are too heavy to be uploaded in the GitHub repo or Google Drive, the necessary information were taken from the original files and saved into _numpy_ files. Then, these files were uploaded to Google Drive.
   
