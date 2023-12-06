@@ -23,6 +23,8 @@ pip install tensorflow
 pip install -U scikit-learn
 ```
 
+The rest of the code is explained in _Code execution_ section and directly in the notebook.
+
 ## 1. INTRODUCTION
 ### 1.1 The DUNE Experiment
 The Deep Underground Neutrino Experiment (DUNE) is a long-baseline neutrino oscillation experiment currently under construction in the United States. It will comprise two detectors: a Near Detector, located near Fermilab in Illinois and a Far Detector situated in South Dakota, 1300 km away. Below a schematic design of the experiment is provided.
