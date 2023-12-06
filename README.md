@@ -10,7 +10,8 @@
 ## Before the execution
 <p align="justify"> For a successful execution of the project, read the following lines.
 
-Since the files in their original format are too heavy to be uploaded in the GitHub repo or Google Drive, the necessary information were taken from the original files and saved into *numpy* files. Then, these files were uploaded to Google Drive.
+<p align="justify"> Since the files in their original format are too heavy to be uploaded in the GitHub repo or Google Drive, the necessary information were taken from the original files and saved into **numpy** files. Then, these files were uploaded to Google Drive.
+  
 To download these files, just run the first box of the notebook. But before, if you don't have `gdown` already installed, you can install it by running:
 ```
 pip install gdown
@@ -21,7 +22,7 @@ Moreover, you need `tensorflow` and `scikit-learn` libraries installed. If they 
 pip install tensorflow
 pip install -U scikit-learn
 ```
-<\p>
+
 ## 1. INTRODUCTION
 ### 1.1 The DUNE Experiment
 The Deep Underground Neutrino Experiment (DUNE) is a long-baseline neutrino oscillation experiment currently under construction in the United States. It will comprise two detectors: a Near Detector, located near Fermilab in Illinois and a Far Detector situated in South Dakota, 1300 km away. Below a schematic design of the experiment is provided.
