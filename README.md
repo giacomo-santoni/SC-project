@@ -16,6 +16,7 @@ To download these files, just run the first box of the notebook. But before, if 
 ```
 pip install gdown
 ```
+This package allows to download files.
 
 Moreover, you need `tensorflow` and `scikit-learn` libraries installed. If they aren't already installed, you can do so by running:
 ```
