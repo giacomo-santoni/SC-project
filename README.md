@@ -63,7 +63,7 @@ The System for on-Axis Neutrino Detection (SAND) is the third detector and it's 
 </p>
 
 #### 1.2.1 GRAIN detector
-The GRAIN (GRanular Argon for Interaction of Neutrinos) detector, filled with ~ 1 ton of Liquid Argon, is positioned upstream within the SAND volume. It will provide inclusive Ar interactions to find systematic uncertainties from nuclear effects located on-axis, cross-calibrating with other detectors.
+The GRAIN detector, filled with ~ 1 ton of Liquid Argon, is positioned upstream within the SAND volume. It will provide inclusive Ar interactions to find systematic uncertainties from nuclear effects located on-axis, cross-calibrating with other detectors.
 
 <p align="center">
 <img width="185" alt="image" src="https://github.com/giacomo-santoni/SC-project/assets/133137485/6b086b6d-ca07-4a65-8c1d-39f18c07093f">
