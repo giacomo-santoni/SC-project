@@ -102,18 +102,18 @@ These data are loaded and rearranged in the first section _Simulated Data - Prep
 ## 2.2 True Data
 Together with each simulated file _"response.drdf"_, there is the file _"sensors.root"_ containing the MC truth of data, that will represent the labels for CNN training. It is a _ROOT_ file: each camera is represented as a ROOT Tree, and each Tree has some variables, organized in TLeaves. The relevant variable is _innerPhotons_, which indicates how many photons produced within the camera are detected by the sensor. As before, due to the large dimensions of the file, only the useful data were taken and then saved into a numpy file. 
 
-The data have been rearranged to have a format consistent with the simulated ones and then labeled. The labeling criterion is based on the ratio $`\frac{N_{inner photons}}{N_{total photons}}`$: if it's larger than 0.1, the camera is considered dazzled, and a 1 is assigned to it, otherwise, is not dazzled. This criterion was chosen to account for situations like the third case presented in Section 1.2.1, when the particle starts to emit before the camera and continues inside. So, if we had looked only at the absolute number of photons we would have discarded a camera that can be useful for the reconstruction.
+The data have been rearranged to have a format consistent with the simulated ones and then labeled. The labeling criterion is based on the ratio $`\frac{N_{inner photons}}{N_{total photons}}`$: if it's larger than 0.1, the camera is considered dazzled, and a 1 is assigned to it, otherwise, it is not dazzled and labelled with 0. This criterion was chosen to account for situations like the third case presented in Section 1.2.1, when the particle starts to emit before the camera and continues inside. So, if we had looked only at the absolute number of photons we would have discarded a camera that can be useful for the reconstruction.
 
 These adjustments were made since these data have to represent only the state of the camera, i.e. dazzled/not dazzled. So at the end, an array of 0 and 1 was obtained.
 
 ## 2.3 Dataset features and rearrangements
 This dataset is highly imbalanced towards not-dazzled cameras, with a distribution of 99.7% - 0.3%. So, with this kind of data, a neural network would be very good in finding the not-dazzled cameras, but only because they are in larger amounts. For this reason, an augmentation to the dazzled cameras was applied, increasing their abundance up 35% with respect to the total number of events.
 Moreover, a threshold was set for cameras with less than 40 photons, since they don't provide useful information for track reconstruction, reducing the dataset by 12%.
-Then, the dataset was split into three subsets: a training dataset of $\approx 10^5$ events, a validation dataset of $\approx 10^3$ events and a test dataset of $\approx 10^4$ events. The augmentation dataset was attached to the training dataset. 
+Then, the dataset was split into three subsets: a training dataset of $\approx 10^5$ events, a validation dataset of $\approx 10^3$ events and a test dataset of $\approx 10^4$ events. The augmentation dataset was attached to the training and the validation dataset. 
 
 # 3. CODE EXECUTION
 In the section _CNN model_, there is the construction of CNN through a _Sequential_ model. 
-The optimizer is 'adam', the loss function is a BinaryCrossentropy, since is a binary classification problem, and the chosen metric is F1Score to minimize both the number of false negatives (FN) and false positives (FP).
+The optimizer is 'adam', as suggested  the loss function is a BinaryCrossentropy, since is a binary classification problem, and the chosen metric is F1Score to minimize both the number of false negatives (FN) and false positives (FP).
 An important feature added to the model is the *class_weight* in the model.fit() function. This was another attempt to solve the imbalancing problem. In this way, the model gives more weight and importance to the minority class. The model is trained for 10 epochs. 
 
 The notebook provides the output of the each code segment along with corresponding comments.
