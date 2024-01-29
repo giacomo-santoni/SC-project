@@ -112,11 +112,14 @@ Moreover, a threshold was set for cameras with less than 40 photons, since they 
 Then, the dataset was split into three subsets: a training dataset of $\approx 10^5$ events, a validation dataset of $\approx 10^3$ events and a test dataset of $\approx 10^4$ events. The augmentation dataset was attached to the training and the validation dataset. 
 
 # 3. CODE EXECUTION
-In the section _CNN model_, there is the construction of CNN through a _Sequential_ model. 
-The optimizer is 'adam', as suggested  the loss function is a BinaryCrossentropy, since is a binary classification problem, and the chosen metric is F1Score to minimize both the number of false negatives (FN) and false positives (FP).
-An important feature added to the model is the *class_weight* in the model.fit() function. This was another attempt to solve the imbalancing problem. In this way, the model gives more weight and importance to the minority class. The model is trained for 10 epochs. 
+In the section _CNN model_, there is the construction of CNN through a _Sequential_ model.
+The model's parameters are gathered inside the _CNNparameters_ dictionary. The batch size is chosen to be 32, as often is done in neural networks. The input shape is (32,32,1) because the cameras have 32x32 pixels and one colour channel. The number of epochs is set to 10, however, it is managed by the _EarlyStopping_ callback, that stops the training when there is no more improvement in the learning. Since it is a binary classification problem, the _BinaryCrossentropy_ is a well-suited loss function. The optimizer is 'adam', as suggested in 1. The chosen metric is _F1Score_ to minimize both the number of false negatives (FN) and false positives (FP).
+An important feature added to the model is the *class_weight* in the model.fit() function. This was another attempt to solve the imbalancing problem. In this way, the model gives more weight and importance to the minority class.
 
 The notebook provides the output of the each code segment along with corresponding comments.
 
-# 4. CONCLUSION
+# 4. RESULTS and NEXT STEPS
 The performances obtained by the code are quite good. To achieve better results it can be furtherly improved. In particular, a possible improvement can arise from a redefinition of the labeling criterion. Currently, there are still some cameras that are very difficult to identify. Furthermore, it is possible to work on the architecture of the neural network by varying the hyperparameters, in order to find the best combination. Anyway, this represents a good starting point for the finalization of the requested task.
+
+# BIBLIOGRAPHY
+1. [https://towardsdatascience.com/7-tips-to-choose-the-best-optimizer-47bb9c1219e]
