@@ -79,7 +79,7 @@ Hence, matrices of SiPMs are placed as photosensors, each equipped with a Hadama
 * the photons are emitted both inside and outside the camera, from an oblique particle: this leads to an unclear pattern on the sensor (bottom image and top arrow)
 
 <p align="center">
-<img width="867" alt="Screenshot 2024-01-30 alle 12 00 21" src="https://github.com/giacomo-santoni/SC-project/assets/133137485/d31fd23e-1ccd-4a63-8247-44b563bae293">
+<img width="567" alt="Screenshot 2024-01-30 alle 12 00 21" src="https://github.com/giacomo-santoni/SC-project/assets/133137485/d31fd23e-1ccd-4a63-8247-44b563bae293">
 </p>
 <p align="center">
   <em>Three possible patterns on the camera, depending on where photons are produced.</em>
@@ -122,7 +122,16 @@ An important feature added to the model is the *class_weight* in the model.fit()
 The notebook provides the output of each code segment along with corresponding comments.
 
 # 4. RESULTS and NEXT STEPS
-The The model obtains a _F1Score_ value of $\sim 0.82$. To achieve better results, it can be further improved. In particular, a possible improvement can arise from the redefinition of the labelling criterion. Currently, there are still some cameras that are very difficult to identify. Furthermore, it is possible to work on the architecture of the neural network by varying the hyperparameters, in order to find the best combination. Anyway, this represents a good starting point for the finalization of the requested task.
+The confusion matrix, reported below and in the notebook too, shows that the predicted _ND_ cameras include some true _D_ ones. Nevertheless, the purity of the dataset increases after the algorithm application. At the beginning the purity is $`p_i = \frac{TN+FN}{N_{totcameras}}`$; after the algorithm processing it becomes $`p_f = \frac{TN}{TN+FP}`$. This shows an improvement, since the relative abundance of the _D_ cameras is reduced, leading to a better track reconstruction. The model obtains a _F1Score_ value of $\sim 0.82$.
+
+<p align="center">
+<img width="300" alt="Screenshot 2024-01-30 alle 12 36 42 (2)" src="https://github.com/giacomo-santoni/SC-project/assets/133137485/5438c3f5-39b4-45a4-9188-e8f66b57bc8f">
+</p>
+<p align="center">
+  <em>Three possible patterns on the camera, depending on where photons are produced.</em>
+</p>
+
+To achieve better results, it can be further improved. In particular, a possible improvement can arise from the redefinition of the labelling criterion. Currently, there are still some cameras that are very difficult to identify. Furthermore, it is possible to work on the architecture of the neural network by varying the hyperparameters, in order to find the best combination. Anyway, this represents a good starting point for the finalization of the requested task.
 
 # BIBLIOGRAPHY
 1. [https://towardsdatascience.com/7-tips-to-choose-the-best-optimizer-47bb9c1219e]
