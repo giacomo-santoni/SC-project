@@ -79,7 +79,7 @@ Hence, matrices of SiPMs are placed as photosensors, each equipped with a Hadama
 * the photons are emitted both inside and outside the camera, from an oblique particle: this leads to an unclear pattern on the sensor (bottom image and top arrow)
 
 <p align="center">
-<img width="671" alt="Screenshot 2023-12-06 alle 09 24 57" src="https://github.com/giacomo-santoni/SC-project/assets/133137485/d2fb5cf0-2dd7-43eb-9484-7b23d2c511a2">
+<img width="867" alt="Screenshot 2024-01-30 alle 12 00 21" src="https://github.com/giacomo-santoni/SC-project/assets/133137485/d31fd23e-1ccd-4a63-8247-44b563bae293">
 </p>
 <p align="center">
   <em>Three possible patterns on the camera, depending on where photons are produced.</em>
