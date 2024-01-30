@@ -115,8 +115,8 @@ Then, the dataset was split into three subsets: a training dataset of $\sim 10^5
 In the section _CNN model_, there is the construction of CNN through a _Sequential_ model.
 The model's parameters are gathered inside the _CNNparameters_ dictionary. The batch size is set 32, as often is done in neural networks. The input shape is (32,32,1) because the cameras have 32x32 pixels and one colour channel. The number of epochs is set to 10, however, it is managed by the _EarlyStopping_ callback, which stops the training when there is no more improvement in the learning. Since it is a binary classification problem, the _BinaryCrossentropy_ is a well-suited loss function. The optimizer is _'adam'_, as suggested in 1. The chosen metric is _F1Score_ to minimize both the number of false negatives (FN) and false positives (FP). 
 It considers both the precision and the recall:
-$$F1 = 2 \cdot \frac{precision \cdot recall}{precision + recall} = \frac{TP}{TP + \frac{1}{2}(FP + FN)}$$,
-where $`precision = \frac{TP}{TP + FP}`$ and $`recall = \frac{TP}{TP + FN}`$. In classification problems, $TP$ indicates true positives (well-identified D cameras), $FP$ false positives (_ND_ cameras classified as $D$), $FN$ false negatives ($D$ cameras classified as _ND_) and $TN$ true negatives (well-identified _ND_ cameras).
+$$F1 = 2 \cdot \frac{precision \cdot recall}{precision + recall} = \frac{TP}{TP + \frac{1}{2}(FP + FN)},$$
+where $`precision = \frac{TP}{TP + FP}`$ and $`recall = \frac{TP}{TP + FN}`$. In classification problems, $TP$ indicates true positives (well-identified D cameras), $FP$ false positives ($ND$ cameras classified as $D$), $FN$ false negatives ($D$ cameras classified as $ND$) and $TN$ true negatives (well-identified $ND$ cameras).
 An important feature added to the model is the *class_weight* in the model.fit() function. This was another attempt to solve the imbalancing problem. In this way, the model gives more weight and importance to the minority class.
 
 The notebook provides the output of each code segment along with corresponding comments.
