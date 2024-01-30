@@ -122,7 +122,7 @@ An important feature added to the model is the *class_weight* in the model.fit()
 The notebook provides the output of each code segment along with corresponding comments.
 
 # 4. RESULTS and NEXT STEPS
-The model obtains a _F1Score_ value of $\sim 0.82$. To achieve better results, it can be further improved. In particular, a possible improvement can arise from the redefinition of the labelling criterion. Currently, there are still some cameras that are very difficult to identify. Furthermore, it is possible to work on the architecture of the neural network by varying the hyperparameters, in order to find the best combination. Anyway, this represents a good starting point for the finalization of the requested task.
+The The model obtains a _F1Score_ value of $\sim 0.82$. To achieve better results, it can be further improved. In particular, a possible improvement can arise from the redefinition of the labelling criterion. Currently, there are still some cameras that are very difficult to identify. Furthermore, it is possible to work on the architecture of the neural network by varying the hyperparameters, in order to find the best combination. Anyway, this represents a good starting point for the finalization of the requested task.
 
 # BIBLIOGRAPHY
 1. [https://towardsdatascience.com/7-tips-to-choose-the-best-optimizer-47bb9c1219e]
