@@ -128,7 +128,7 @@ The confusion matrix, reported below and in the notebook too, shows that the pre
 <img width="300" alt="Screenshot 2024-01-30 alle 12 36 42 (2)" src="https://github.com/giacomo-santoni/SC-project/assets/133137485/5438c3f5-39b4-45a4-9188-e8f66b57bc8f">
 </p>
 <p align="center">
-  <em>Three possible patterns on the camera, depending on where photons are produced.</em>
+  <em>Confusion matrix obtained from the model.</em>
 </p>
 
 To achieve better results, it can be further improved. In particular, a possible improvement can arise from the redefinition of the labelling criterion. Currently, there are still some cameras that are very difficult to identify. Furthermore, it is possible to work on the architecture of the neural network by varying the hyperparameters, in order to find the best combination. Anyway, this represents a good starting point for the finalization of the requested task.
