@@ -122,7 +122,7 @@ An important feature added to the model is the *class_weight* in the model.fit()
 The notebook provides the output of each code segment along with corresponding comments.
 
 # 4. RESULTS and NEXT STEPS
-The confusion matrix, reported below and in the notebook too, shows that the predicted _ND_ cameras include some true _D_ ones. Nevertheless, the purity of the dataset increases after the algorithm application. At the beginning the purity is $`p_i = \frac{TN+FN}{N_{totcameras}} = 0.9971`$; after the algorithm processing it becomes $`p_f = \frac{TN}{TN+FP} = 0.9993`$. This shows an improvement, since the relative abundance of the _D_ cameras is reduced, leading to a better track reconstruction. The model obtains a _F1Score_ value of $\sim 0.82$.
+The confusion matrix, reported below and in the notebook too, shows that the predicted _ND_ cameras include some true _D_ ones. Nevertheless, the purity of the dataset increases after the algorithm application. At the beginning the purity is $`p_i = \frac{TN+FN}{N_{totcameras}} = 0.9971`$; after the algorithm processing it becomes $`p_f = \frac{TN}{TN+FP} = 0.9993`$. This shows an improvement that leads to a better track reconstruction, since the relative abundance of the _D_ cameras is reduced. The model obtains a _F1Score_ value of $\sim 0.82$.
 
 <p align="center">
 <img width="300" alt="Screenshot 2024-01-30 alle 12 36 42 (2)" src="https://github.com/giacomo-santoni/SC-project/assets/133137485/5438c3f5-39b4-45a4-9188-e8f66b57bc8f">
