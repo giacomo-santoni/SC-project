@@ -129,7 +129,7 @@ The confusion matrix, reported below and in the notebook, shows that the predict
 <img width="450" alt="c251ca60-22e9-4682-a054-bceea19fd918" src="https://github.com/giacomo-santoni/SC-project/assets/133137485/040679b1-fdef-4ecf-b4d0-8c035f6adc87">
 </p>
 <p align="center">
-  <em>Trends of _F1Score_ metric and loss function over 10 epochs for training and validation datasets.</em>
+  <em>Trends of F1Score metric and loss function over 10 epochs for training and validation datasets.</em>
 </p>
 
 <p align="center">
