@@ -54,7 +54,7 @@ As mentioned earlier, DUNE is provided with two main detectors. <br> The Far Det
   <em>Near detector design in two different configurations.</em>
 </p>
 
-The System for on-Axis Neutrino Detection (SAND) is the third detector, and it is fixed on-axis. It is designed to measure the neutrino beam spectrum and perform tracking and calorimetry measurements. Below, the design is shown. The idea of this system comes from an existing magnet and ECAL of the KLOE detector used in the DAFNE experiment at INFN LNF Laboratory. <br> SAND consists of two subdetectors: a Straw Tube Target tracker (STT) for momentum measurements and the GRAIN (GRanular Argon for Interactions of Neutrinos) detector. 
+The System for on-Axis Neutrino Detection (SAND) is the third detector, and it is fixed on-axis. It is designed to measure the neutrino beam spectrum and to perform tracking and calorimetry measurements. Below, the design is shown. The idea of this system comes from an existing magnet and ECAL of the KLOE detector used in the DAFNE experiment at INFN LNF Laboratory. <br> SAND consists of two subdetectors: a Straw Tube Target tracker (STT) for momentum measurements and the GRAIN (GRanular Argon for Interactions of Neutrinos) detector. 
 <p align="center">
 <img width="537" alt="Screenshot 2023-10-19 alle 10 42 23" src="https://github.com/giacomo-santoni/SC-project/assets/133137485/8eef6263-4dba-47e3-958c-4a41c12c48a6">
 </p>
