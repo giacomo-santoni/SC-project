@@ -32,7 +32,7 @@ The rest of the code is explained in the _Code execution_ section and directly i
 
 ## 1. INTRODUCTION
 ### 1.1 The DUNE Experiment
-The Deep Underground Neutrino Experiment (DUNE) is a long-baseline neutrino oscillation experiment currently under construction in the United States. It will comprise two detectors: a Near Detector, located near Fermilab in Illinois, and a Far Detector, situated in South Dakota, 1300 km away. Below, a schematic design of the experiment is provided.
+The Deep Underground Neutrino Experiment (DUNE) is a long-baseline neutrino oscillation experiment currently under construction in the USA. It will comprise two detectors: a Near Detector, located near Fermilab in Illinois, and a Far Detector, situated in South Dakota, 1300 km away. Below, a schematic design of the experiment is provided.
 <p align="center">
 <img width="758" alt="Screenshot 2023-10-19 alle 09 32 51" src="https://github.com/giacomo-santoni/SC-project/assets/133137485/0a0f477e-2ce3-4b4d-aa48-10de63a9adee">
 </p>
