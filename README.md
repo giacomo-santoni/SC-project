@@ -142,5 +142,5 @@ The confusion matrix, reported below and in the notebook, shows that the predict
 Despite the good results, further steps can be taken to improve the model's performance. It must be noted that the data are not so clearly distinguishable between dazzled and non-dazzled since sometimes even a _D_-labelled camera looks like an _ND_-one, or vice versa, making the task very complex. A possible improvement can come from a redefinition in the labelling criterion, defining three categories. Beyond the non-dazzled cameras, a further distinction among the dazzled cameras can be made by considering the ones where the particle directly hit the sensor and the ones where the particle emitted photons within the camera without hitting the sensor.
 
 # BIBLIOGRAPHY
-[1]. _An overview of gradient descent optimization algorithms_, [https://doi.org/10.48550/arXiv.1609.04747]
-[2]. Francois Chollet. _Deep Learning with Python._ Manning, Nov. 2017. ISBN:9781617294433.
+[1]. _An overview of gradient descent optimization algorithms_, [https://doi.org/10.48550/arXiv.1609.04747] <br />
+[2]. Francois Chollet. _Deep Learning with Python._ Manning, Nov. 2017. ISBN:9781617294433. <br />
