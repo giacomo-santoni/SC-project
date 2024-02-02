@@ -122,7 +122,8 @@ An important feature added to the model is the *class_weight* in the model.fit()
 The notebook provides the output of each code segment along with corresponding comments.
 
 # 4. RESULTS and NEXT STEPS
-The confusion matrix, reported below and in the notebook, shows that the predicted _ND_ cameras include some true _D_ ones. Nevertheless, the purity of the dataset increases after the algorithm application. At the beginning the purity is $`p_i = \frac{TN+FP}{N_{totcameras}} = 0.9971`$; after the algorithm processing it becomes $`p_f = \frac{TN}{TN+FN} = 0.9993`$. This shows an improvement that leads to a better track reconstruction since the relative abundance of the _D_ cameras is reduced. The model obtains a _F1Score_ value of $\sim 0.82$.
+After the data preprocessing and the building of the CNN architecture, the model was trained for several epochs managed by the _EarlyStopping_ callback. During the training, the _F1Score_ metric and the loss function have been monitored for both the training and the validation datasets. The score increases approaching $\sim$ 1, while the loss decreases to $\sim 0.02$, as shown in the notebook. The better value of the validation score and loss is probably due to the regularization option in the model, that acts only on training set increasing the loss function value. This is a technique to mitigate overfitting: it constrains the network’s weights to take only small values, making the weight distribution more regular by adding a cost to the loss function when it is associated with large weights. In particular, in the \textit{L2 regularization}, the cost added is proportional to the square of the value of the weight coefficients \cite{deep-learn-python}.
+The confusion matrix, reported below and in the notebook, shows that the predicted _ND_ cameras include some true _D_ ones. Nevertheless, the purity of the dataset increases after the algorithm application. At the beginning the purity is $`p_i = \frac{TN+FP}{N_{totcameras}} = 0.9971`$; after the algorithm processing it becomes $`p_f = \frac{TN}{TN+FN} = 0.9995`$. This shows an improvement that leads to a better track reconstruction since the relative abundance of the _D_ cameras is reduced. The model obtains a _F1Score_ value of $\sim 0.82$. 
 
 <p align="center">
 <img width="300" alt="Screenshot 2024-02-02 alle 10 50 53" src="https://github.com/giacomo-santoni/SC-project/assets/133137485/85d5a3a1-9713-4f30-b545-b6f704685f3d">
@@ -130,6 +131,16 @@ The confusion matrix, reported below and in the notebook, shows that the predict
 <p align="center">
   <em>Confusion matrix obtained from the model.</em>
 </p>
+
+![c251ca60-22e9-4682-a054-bceea19fd918](https://github.com/giacomo-santoni/SC-project/assets/133137485/040679b1-fdef-4ecf-b4d0-8c035f6adc87)
+
+<p align="center">
+<img width="300" alt="c251ca60-22e9-4682-a054-bceea19fd918" src="https://github.com/giacomo-santoni/SC-project/assets/133137485/040679b1-fdef-4ecf-b4d0-8c035f6adc87">
+</p>
+<p align="center">
+  <em>Trends of _F1Score_ metric and loss function over 10 epochs for training and validation datasets.</em>
+</p>
+
 
 Despite the good results, further steps can be taken to improve the model's performance. It must be noted that the data are not so clearly distinguishable between dazzled and non-dazzled since sometimes even a _D_-labelled camera looks like an _ND_-one, or vice versa, making the task very complex. A possible improvement can come from a redefinition in the labelling criterion, defining three categories. Beyond the non-dazzled cameras, a further distinction among the dazzled cameras can be made by considering the ones where the particle directly hit the sensor and the ones where the particle emitted photons within the camera without hitting the sensor.
 
