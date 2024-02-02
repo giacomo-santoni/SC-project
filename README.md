@@ -74,9 +74,9 @@ The GRAIN detector, filled with ~ 1 ton of Liquid Argon, is positioned upstream 
 
 Given the challenges related to the construction of an LAr TPC in the Near Detector due to numerous events and the pile-up, a novel detection technique has been developed. The tracking and calorimetry system of GRAIN is based on the exploitation of the LAr scintillation light through imaging. Indeed, charged particles in LAr ionize and excite Ar atoms, resulting in photon emission during subsequent de-excitation.
 Hence, matrices of SiPMs are placed as photosensors, each equipped with a Hadamard mask. The combination of mask and sensor constitutes a ‘camera’. The chosen approach to study this detector is the Coded Aperture Imaging technique. The light patterns observed by the sensors are convolutions of images from each hole. We can have different situations depending on the photon emission. Basically, there are three situations, as shown in the figure below:
-* the photons are emitted before the camera, and there will be a clear mask pattern on the sensor (top image and central arrow)
-* the photons are emitted inside the camera from a particle that hits the camera, then there will be a peak of photons in one single point on the sensor (central image and central arrow)
-* the photons are emitted both inside and outside the camera from an oblique particle: this leads to an unclear pattern on the sensor (bottom image and top arrow)
+* the photons are emitted before the camera, and there will be a clear mask pattern on the sensor (top image)
+* the photons are emitted inside the camera from a particle that hits the camera, then there will be a peak of photons in one single point on the sensor (central image)
+* the photons are emitted both inside and outside the camera from an oblique particle: this leads to an unclear pattern on the sensor (bottom image)
 
 <p align="center">
 <img width="567" alt="Screenshot 2024-01-30 alle 12 00 21" src="https://github.com/giacomo-santoni/SC-project/assets/133137485/d31fd23e-1ccd-4a63-8247-44b563bae293">
